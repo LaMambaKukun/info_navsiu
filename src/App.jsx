@@ -6,33 +6,33 @@ export default function App() {
   const slides = [
     {
       id: 'cover',
-      badge: 'Modelos de Seguridad Digital',
+      badge: 'Ciberseguridad Pro',
       badgeColor: 'cyan',
       title: 'La Tríada de la Ciberseguridad',
-      highlightTitle: 'Ciberseguridad',
-      subtitle: 'Estrategia fundamental para proteger los activos de información: Confidencialidad, Integridad y Disponibilidad.',
-      tagline: 'Presentación Ejecutiva TechChic',
+      highlightTitle: 'Tríada CIA',
+      subtitle: 'El estándar de oro diseñado para proteger, auditar y resguardar los activos de información en la era digital.',
+      tagline: 'Diseño Pro // Estilo Apple TechChic',
       type: 'cover'
     },
     {
       id: 'intro',
-      badge: 'Fundamento Esencial',
+      badge: 'Modelo Fundacional',
       badgeColor: 'magenta',
-      title: '¿Qué es la Tríada CIA?',
-      description: 'La Tríada CIA es un modelo estándar diseñado para guiar las políticas y estrategias de seguridad de la información en organizaciones modernas.',
+      title: '¿Qué es el Modelo CIA?',
+      description: 'La Tríada CIA establece un marco conceptual compuesto por tres pilares interconectados. Un fallo en cualquiera de ellos compromete la seguridad completa del sistema.',
       type: 'intro',
       cards: [
         {
-          icon: '⚡',
+          icon: '✦',
           color: '#00F0FF',
-          title: 'Enfoque Holístico',
-          text: 'Ninguno de los tres pilares funciona de manera aislada. La protección requiere un equilibrio dinámico y continuo.'
+          title: 'Protección Integral',
+          text: 'Combina barreras de red, cifrado de hardware y controles de software.'
         },
         {
           icon: '🛡️',
           color: '#FF007F',
-          title: 'Gestión de Riesgos',
-          text: 'Cualquier incidente o brecha de seguridad representa una vulneración directa a uno o más de estos ejes centrales.'
+          title: 'Resiliencia de Negocio',
+          text: 'Mantiene la continuidad de las operaciones ante incidentes o ciberataques.'
         }
       ]
     },
@@ -41,24 +41,24 @@ export default function App() {
       badge: 'Pilar 01',
       badgeColor: 'cyan',
       title: 'Confidencialidad',
-      subtitle: 'Garantizar que los datos y la información sean accesibles únicamente por el personal o sistemas debidamente autorizados.',
+      subtitle: 'Garantizar que los datos sean accesibles únicamente por usuarios y procesos debidamente autenticados.',
       type: 'pillar',
       glowColor: '#00F0FF',
       cards: [
         {
-          icon: '🔐',
-          title: 'Cifrado Robusto',
-          text: 'Protección de datos en tránsito (TLS/SSL) y en reposo mediante algoritmos avanzados como AES-256.'
-        },
-        {
-          icon: '👤',
-          title: 'Autenticación MFA',
-          text: 'Uso de doble factor de autenticación para verificar con certeza la identidad de los usuarios.'
+          icon: '🔒',
+          title: 'Cifrado de Extremo a Extremo',
+          text: 'Protección de datos en reposo y en tránsito con esquemas criptográficos AES-256.'
         },
         {
           icon: '🪪',
-          title: 'Control de Acceso',
-          text: 'Aplicación del principio de mínimo privilegio para limitar permisos estrictamente necesarios.'
+          title: 'Autenticación Zero Trust',
+          text: 'Verificación continua de identidad y permisos mínimos por usuario.'
+        },
+        {
+          icon: '👁️',
+          title: 'Prevención de Fugas (DLP)',
+          text: 'Monitoreo activo para evitar la exfiltración de información sensible.'
         }
       ]
     },
@@ -67,24 +67,24 @@ export default function App() {
       badge: 'Pilar 02',
       badgeColor: 'magenta',
       title: 'Integridad',
-      subtitle: 'Asegurar que la información se mantenga exacta, completa y libre de modificaciones no autorizadas o malintencionadas.',
+      subtitle: 'Asegurar que la información se mantenga exacta, completa y libre de alteraciones no autorizadas.',
       type: 'pillar',
       glowColor: '#FF007F',
       cards: [
         {
           icon: '🧬',
-          title: 'Funciones Hash',
-          text: 'Verificación de archivos mediante algoritmos criptográficos como SHA-256 para detectar alteración.'
+          title: 'Firmas & Hashes',
+          text: 'Validación con algoritmos SHA-256 para verificar la autenticidad de los archivos.'
         },
         {
           icon: '✍️',
-          title: 'Firmas Digitales',
-          text: 'Garantizan la autenticidad del origen y aseguran el no repudio de transacciones y documentos.'
+          title: 'Control de Cambios',
+          text: 'Registros de auditoría (Audit Logs) inmutables para rastrear modificaciones.'
         },
         {
-          icon: '🔄',
-          title: 'Control de Versiones',
-          text: 'Auditorías y registros (logs) inmutables para rastrear cualquier cambio en bases de datos.'
+          icon: '⚡',
+          title: 'No Repudio',
+          text: 'Mecanismos que impiden denegar la autoría de una transacción realizada.'
         }
       ]
     },
@@ -93,33 +93,33 @@ export default function App() {
       badge: 'Pilar 03',
       badgeColor: 'cyan',
       title: 'Disponibilidad',
-      subtitle: 'Garantizar el acceso oportuno y confiable a los sistemas, datos y aplicaciones para usuarios autorizados cuando lo requieran.',
+      subtitle: 'Garantizar el acceso fluido y sin interrupciones a los datos cuando los usuarios lo requieran.',
       type: 'pillar',
       glowColor: '#00F0FF',
       cards: [
         {
-          icon: '🖥️',
-          title: 'Redundancia',
-          text: 'Sistemas duplicados y clusters de servidores para eliminar puntos únicos de falla (SPOF).'
+          icon: '☁️',
+          title: 'Redundancia & Clusters',
+          text: 'Infraestructura de alta disponibilidad sin puntos únicos de fallo (SPOF).'
         },
         {
-          icon: '☁️',
-          title: 'Respaldos (Backups)',
-          text: 'Copias de seguridad periódicas, automatizadas y probadas almacenadas en ubicaciones seguras.'
+          icon: '🔄',
+          title: 'Respaldos Automatizados',
+          text: 'Backups frecuentes con recuperación rápida ante desastres (Disaster Recovery).'
         },
         {
           icon: '🛡️',
-          title: 'Protección DDoS',
-          text: 'Mitigación activa de ataques masivos que buscan saturar y dejar fuera de servicio la red.'
+          title: 'Mitigación DDoS',
+          text: 'Filtros de tráfico para absorber ataques masivos de denegación de servicio.'
         }
       ]
     },
     {
       id: 'summary',
-      badge: 'Resumen Ejecutivo',
+      badge: 'Conclusión',
       badgeColor: 'magenta',
-      title: 'Seguridad Integral en Equilibrio',
-      subtitle: 'La correcta aplicación de la Tríada de la Ciberseguridad garantiza la resiliencia operativa, la continuidad del negocio y la confianza digital.',
+      title: 'Seguridad Digital en Armonía',
+      subtitle: 'El equilibrio entre Confidencialidad, Integridad y Disponibilidad define el estándar de excelencia en seguridad informática.',
       type: 'summary'
     }
   ]
@@ -131,175 +131,131 @@ export default function App() {
 
   return (
     <div style={styles.appWrapper}>
-      {/* Dynamic Background Effects */}
-      <div style={styles.gridOverlay}></div>
-      <div style={styles.cyanGlowBlob}></div>
-      <div style={styles.magentaGlowBlob}></div>
+      {/* Dynamic Background Glows */}
+      <div style={styles.ambientCyan}></div>
+      <div style={styles.ambientMagenta}></div>
 
-      {/* Main Slide Card Container */}
-      <main style={styles.slideCard}>
-        {/* Top Header Controls */}
-        <header style={styles.slideHeader}>
-          <div style={styles.brandBadge}>
-            <span style={styles.brandDot}></span>
-            <span style={styles.brandText}>TECHCHIC // INFOGRAFÍA</span>
+      {/* Main Glassmorphism Card Container */}
+      <main style={styles.appleContainer}>
+        {/* Navigation Bar */}
+        <header style={styles.headerBar}>
+          <div style={styles.logoPill}>
+            <span style={styles.logoDot}></span>
+            <span style={styles.logoText}>INFO_NAVSIU // APPLE TECHCHIC</span>
           </div>
           <div style={styles.slideCounter}>
-            0{currentSlide + 1} <span style={{ color: '#555566' }}>/</span> 0{slides.length}
+            0{currentSlide + 1} <span style={{ color: 'rgba(255,255,255,0.3)' }}>/</span> 0{slides.length}
           </div>
         </header>
 
-        {/* SLIDE TYPE: COVER */}
+        {/* COVER SLIDE */}
         {slide.type === 'cover' && (
-          <div style={styles.coverLayout}>
-            {/* 3D Visual Hero */}
-            <div style={styles.hero3dGroup}>
-              <div style={{ ...styles.heroBox, ...styles.heroBoxCyan }}>
-                <span style={{ fontSize: '32px' }}>🔒</span>
-              </div>
-              <div style={{ ...styles.heroBox, ...styles.heroBoxCenter }}>
-                <span style={{ fontSize: '42px' }}>🛡️</span>
-              </div>
-              <div style={{ ...styles.heroBox, ...styles.heroBoxMagenta }}>
-                <span style={{ fontSize: '32px' }}>🖥️</span>
-              </div>
-            </div>
-
+          <div style={styles.coverView}>
             <span style={slide.badgeColor === 'cyan' ? styles.badgeCyan : styles.badgeMagenta}>
               {slide.badge}
             </span>
-
-            <h1 style={styles.coverTitle}>
-              La Tríada de la <span style={styles.cyanTextGlow}>{slide.highlightTitle}</span>
+            <h1 style={styles.appleHeroTitle}>
+              {slide.title}
             </h1>
+            <p style={styles.appleHeroSubtitle}>{slide.subtitle}</p>
 
-            <p style={styles.coverSubtitle}>{slide.subtitle}</p>
-
-            <div style={styles.taglineBox}>
-              <span style={styles.taglineDot}></span>
-              <span style={styles.taglineText}>{slide.tagline}</span>
+            {/* 3D Glass Pill Elements */}
+            <div style={styles.triadPillGroup}>
+              <div style={{ ...styles.triadGlassItem, borderColor: '#00F0FF' }}>
+                <span style={{ color: '#00F0FF', fontWeight: '800' }}>C</span> Confidencialidad
+              </div>
+              <div style={{ ...styles.triadGlassItem, borderColor: '#FF007F' }}>
+                <span style={{ color: '#FF007F', fontWeight: '800' }}>I</span> Integridad
+              </div>
+              <div style={{ ...styles.triadGlassItem, borderColor: '#00F0FF' }}>
+                <span style={{ color: '#00F0FF', fontWeight: '800' }}>A</span> Disponibilidad
+              </div>
             </div>
           </div>
         )}
 
-        {/* SLIDE TYPE: INTRO */}
+        {/* INTRO SLIDE */}
         {slide.type === 'intro' && (
-          <div style={styles.contentLayout}>
-            <div style={styles.sectionHeader}>
+          <div style={styles.contentView}>
+            <div style={styles.badgeRow}>
               <span style={styles.badgeMagenta}>{slide.badge}</span>
-              <h2 style={styles.sectionTitle}>{slide.title}</h2>
-              <div style={styles.accentBar}></div>
             </div>
+            <h2 style={styles.sectionHeading}>{slide.title}</h2>
+            <p style={styles.sectionParagraph}>{slide.description}</p>
 
-            <div style={styles.introGrid}>
-              <div style={styles.introTextCol}>
-                <p style={styles.bodyParagraph}>{slide.description}</p>
-                {slide.cards.map((c, i) => (
-                  <div key={i} style={{ ...styles.card3d, borderLeft: `4px solid ${c.color}`, marginBottom: '16px' }}>
-                    <h3 style={{ ...styles.cardTitleSmall, color: c.color }}>
-                      <span style={{ marginRight: '8px' }}>{c.icon}</span> {c.title}
-                    </h3>
-                    <p style={styles.cardTextSmall}>{c.text}</p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Graphic Representation */}
-              <div style={styles.introVisualCol}>
-                <div style={styles.triangleContainer}>
-                  <svg width="260" height="220" viewBox="0 0 260 220" style={{ overflow: 'visible' }}>
-                    <polygon
-                      points="130,20 240,190 20,190"
-                      style={{
-                        fill: 'rgba(0, 240, 255, 0.03)',
-                        stroke: 'url(#triGrad)',
-                        strokeWidth: '4',
-                        filter: 'drop-shadow(0 0 12px rgba(0, 240, 255, 0.4))'
-                      }}
-                    />
-                    <defs>
-                      <linearGradient id="triGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#00F0FF" />
-                        <stop offset="100%" stopColor="#FF007F" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                  <div style={styles.triLabelTop}>CONFIDENCIALIDAD</div>
-                  <div style={styles.triLabelRight}>INTEGRIDAD</div>
-                  <div style={styles.triLabelLeft}>DISPONIBILIDAD</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* SLIDE TYPE: PILLAR */}
-        {slide.type === 'pillar' && (
-          <div style={styles.contentLayout}>
-            <div style={styles.sectionHeaderRow}>
-              <div>
-                <span style={slide.badgeColor === 'cyan' ? styles.badgeCyan : styles.badgeMagenta}>
-                  {slide.badge}
-                </span>
-                <h2 style={{ ...styles.sectionTitle, color: slide.glowColor, textShadow: `0 0 20px ${slide.glowColor}80` }}>
-                  {slide.title}
-                </h2>
-              </div>
-              <p style={styles.pillarSubtitle}>{slide.subtitle}</p>
-            </div>
-
-            <div style={styles.cardsRow}>
+            <div style={styles.introCardsGrid}>
               {slide.cards.map((c, i) => (
-                <div key={i} style={styles.card3dCol}>
-                  <div style={{ ...styles.iconBadge, borderColor: slide.glowColor }}>
-                    <span>{c.icon}</span>
-                  </div>
-                  <h3 style={styles.cardColTitle}>{c.title}</h3>
-                  <p style={styles.cardColText}>{c.text}</p>
+                <div key={i} style={{ ...styles.appleCard, borderTop: `2px solid ${c.color}` }}>
+                  <span style={{ ...styles.cardIcon, color: c.color }}>{c.icon}</span>
+                  <h3 style={styles.cardHeader}>{c.title}</h3>
+                  <p style={styles.cardDescription}>{c.text}</p>
                 </div>
               ))}
             </div>
           </div>
         )}
 
-        {/* SLIDE TYPE: SUMMARY */}
-        {slide.type === 'summary' && (
-          <div style={styles.coverLayout}>
-            <div style={styles.summaryCheckIcon}>✓</div>
-            <span style={styles.badgeMagenta}>{slide.badge}</span>
-            <h2 style={styles.coverTitle}>{slide.title}</h2>
-            <p style={styles.coverSubtitle}>{slide.subtitle}</p>
-            <div style={{ ...styles.card3d, padding: '16px 36px', borderColor: '#00F0FF', marginTop: '12px' }}>
-              <span style={{ color: '#00F0FF', fontWeight: '700', fontSize: '18px' }}>
-                ¿Preguntas o Comentarios?
-              </span>
+        {/* PILLAR SLIDES */}
+        {slide.type === 'pillar' && (
+          <div style={styles.contentView}>
+            <div style={styles.pillarHeaderRow}>
+              <div>
+                <span style={slide.badgeColor === 'cyan' ? styles.badgeCyan : styles.badgeMagenta}>
+                  {slide.badge}
+                </span>
+                <h2 style={{ ...styles.sectionHeading, color: slide.glowColor }}>
+                  {slide.title}
+                </h2>
+              </div>
+              <p style={styles.pillarSubText}>{slide.subtitle}</p>
+            </div>
+
+            <div style={styles.pillarGrid}>
+              {slide.cards.map((c, i) => (
+                <div key={i} style={styles.appleCardFeature}>
+                  <div style={{ ...styles.featureIconBadge, borderColor: slide.glowColor }}>
+                    <span>{c.icon}</span>
+                  </div>
+                  <h3 style={styles.cardHeader}>{c.title}</h3>
+                  <p style={styles.cardDescription}>{c.text}</p>
+                </div>
+              ))}
             </div>
           </div>
         )}
 
-        {/* Bottom Navigation Bar */}
-        <footer style={styles.slideFooter}>
-          <div style={styles.dotsGroup}>
+        {/* SUMMARY SLIDE */}
+        {slide.type === 'summary' && (
+          <div style={styles.coverView}>
+            <div style={styles.appleCheckBadge}>✓</div>
+            <span style={styles.badgeMagenta}>{slide.badge}</span>
+            <h2 style={styles.appleHeroTitle}>{slide.title}</h2>
+            <p style={styles.appleHeroSubtitle}>{slide.subtitle}</p>
+          </div>
+        )}
+
+        {/* Footer Navigation */}
+        <footer style={styles.footerBar}>
+          <div style={styles.indicatorGroup}>
             {slides.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setCurrentSlide(idx)}
                 style={{
-                  ...styles.dotBtn,
+                  ...styles.indicatorDot,
                   backgroundColor: currentSlide === idx ? '#00F0FF' : 'rgba(255,255,255,0.2)',
-                  boxShadow: currentSlide === idx ? '0 0 10px #00F0FF' : 'none',
-                  width: currentSlide === idx ? '28px' : '10px'
+                  width: currentSlide === idx ? '32px' : '8px'
                 }}
               />
             ))}
           </div>
 
-          <div style={styles.navButtons}>
-            <button onClick={prevSlide} style={styles.btnNav}>
-              ← Anterior
+          <div style={styles.navGroup}>
+            <button onClick={prevSlide} style={styles.appleBtnSecondary}>
+              Anterior
             </button>
-            <button onClick={nextSlide} style={{ ...styles.btnNav, ...styles.btnNavPrimary }}>
-              Siguiente →
+            <button onClick={nextSlide} style={styles.appleBtnPrimary}>
+              Siguiente
             </button>
           </div>
         </footer>
@@ -308,397 +264,297 @@ export default function App() {
   )
 }
 
-// TechChic Inline Styles Object
+// Apple-inspired Dark Glassmorphism Styles
 const styles = {
   appWrapper: {
-    backgroundColor: '#050508',
+    backgroundColor: '#000000',
     minHeight: '100vh',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: '24px',
-    fontFamily: "'Plus Jakarta Sans', sans-serif",
-    color: '#FFFFFF',
+    padding: '32px 20px',
+    fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif',
+    color: '#F5F5F7',
     position: 'relative',
     overflow: 'hidden'
   },
-  gridOverlay: {
+  ambientCyan: {
     position: 'absolute',
-    inset: 0,
-    backgroundImage: `
-      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px)
-    `,
-    backgroundSize: '32px 32px',
-    pointerEvents: 'none'
-  },
-  cyanGlowBlob: {
-    position: 'absolute',
-    top: '10%',
-    left: '10%',
-    width: '350px',
-    height: '350px',
+    top: '-10%',
+    left: '20%',
+    width: '500px',
+    height: '500px',
     borderRadius: '50%',
-    background: 'rgba(0, 240, 255, 0.08)',
-    filter: 'blur(90px)',
+    background: 'radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, rgba(0,0,0,0) 70%)',
     pointerEvents: 'none'
   },
-  magentaGlowBlob: {
+  ambientMagenta: {
     position: 'absolute',
-    bottom: '10%',
-    right: '10%',
-    width: '350px',
-    height: '350px',
+    bottom: '-10%',
+    right: '20%',
+    width: '500px',
+    height: '500px',
     borderRadius: '50%',
-    background: 'rgba(255, 0, 127, 0.08)',
-    filter: 'blur(90px)',
+    background: 'radial-gradient(circle, rgba(255, 0, 127, 0.15) 0%, rgba(0,0,0,0) 70%)',
     pointerEvents: 'none'
   },
-  slideCard: {
+  appleContainer: {
     width: '100%',
-    maxWidth: '1100px',
-    minHeight: '620px',
-    backgroundColor: 'rgba(10, 10, 14, 0.95)',
+    maxWidth: '1000px',
+    minHeight: '600px',
+    backgroundColor: 'rgba(22, 22, 26, 0.75)',
     border: '1px solid rgba(255, 255, 255, 0.12)',
-    borderRadius: '24px',
-    boxShadow: '0 30px 60px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
-    backdropFilter: 'blur(16px)',
+    borderRadius: '30px',
+    boxShadow: '0 40px 80px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+    backdropFilter: 'blur(30px)',
+    WebkitBackdropFilter: 'blur(30px)',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    padding: '36px 48px',
+    padding: '40px 52px',
     position: 'relative',
     zIndex: 2
   },
-  slideHeader: {
+  headerBar: {
     display: 'flex',
     justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: '24px'
+    alignItems: 'center'
   },
-  brandBadge: {
+  logoPill: {
     display: 'flex',
     alignItems: 'center',
-    gap: '8px',
-    background: 'rgba(255,255,255,0.04)',
-    padding: '6px 14px',
-    borderRadius: '20px',
-    border: '1px solid rgba(255,255,255,0.08)'
+    gap: '10px',
+    background: 'rgba(255, 255, 255, 0.05)',
+    padding: '8px 16px',
+    borderRadius: '100px',
+    border: '1px solid rgba(255, 255, 255, 0.08)'
   },
-  brandDot: {
+  logoDot: {
     width: '8px',
     height: '8px',
     borderRadius: '50%',
     backgroundColor: '#00F0FF',
-    boxShadow: '0 0 8px #00F0FF'
+    boxShadow: '0 0 10px #00F0FF'
   },
-  brandText: {
-    fontSize: '12px',
+  logoText: {
+    fontSize: '11px',
     fontWeight: '700',
-    color: '#A0A0B0',
-    letterSpacing: '1px'
+    color: '#86868B',
+    letterSpacing: '1.2px'
   },
   slideCounter: {
-    fontSize: '14px',
-    fontWeight: '700',
+    fontSize: '13px',
+    fontWeight: '600',
     color: '#00F0FF',
     letterSpacing: '1px'
   },
-  coverLayout: {
+  coverView: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     textAlign: 'center',
     margin: 'auto 0'
   },
-  hero3dGroup: {
-    display: 'flex',
-    gap: '20px',
-    alignItems: 'center',
-    marginBottom: '28px'
+  appleHeroTitle: {
+    fontSize: '48px',
+    fontWeight: '700',
+    letterSpacing: '-0.02em',
+    lineHeight: '1.1',
+    marginTop: '16px',
+    marginBottom: '16px',
+    background: 'linear-gradient(180deg, #FFFFFF 0%, #A1A1A6 100%)',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent'
   },
-  heroBox: {
-    width: '70px',
-    height: '70px',
-    borderRadius: '18px',
+  appleHeroSubtitle: {
+    fontSize: '19px',
+    color: '#86868B',
+    maxWidth: '640px',
+    lineHeight: '1.5',
+    fontWeight: '400',
+    marginBottom: '32px'
+  },
+  triadPillGroup: {
     display: 'flex',
-    alignItems: 'center',
+    gap: '16px',
+    flexWrap: 'wrap',
+    justifyContent: 'center'
+  },
+  triadGlassItem: {
+    background: 'rgba(255, 255, 255, 0.03)',
+    border: '1px solid',
+    borderRadius: '100px',
+    padding: '12px 24px',
+    fontSize: '14px',
+    fontWeight: '500',
+    color: '#F5F5F7',
+    backdropFilter: 'blur(10px)'
+  },
+  contentView: {
+    display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'center',
-    border: '2px solid'
+    margin: 'auto 0'
   },
-  heroBoxCyan: {
-    background: 'linear-gradient(135deg, rgba(0,240,255,0.2), rgba(0,240,255,0.05))',
-    borderColor: '#00F0FF',
-    transform: 'rotate(-10deg)',
-    boxShadow: '0 0 25px rgba(0,240,255,0.3)'
-  },
-  heroBoxCenter: {
-    width: '85px',
-    height: '85px',
-    background: 'linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.02))',
-    borderColor: '#FFFFFF',
-    transform: 'scale(1.1)',
-    boxShadow: '0 0 30px rgba(255,255,255,0.2)'
-  },
-  heroBoxMagenta: {
-    background: 'linear-gradient(135deg, rgba(255,0,127,0.2), rgba(255,0,127,0.05))',
-    borderColor: '#FF007F',
-    transform: 'rotate(10deg)',
-    boxShadow: '0 0 25px rgba(255,0,127,0.3)'
+  badgeRow: {
+    marginBottom: '12px'
   },
   badgeCyan: {
     background: 'rgba(0, 240, 255, 0.1)',
-    border: '1px solid #00F0FF',
+    border: '1px solid rgba(0, 240, 255, 0.4)',
     color: '#00F0FF',
     padding: '6px 16px',
-    borderRadius: '20px',
-    fontSize: '12px',
+    borderRadius: '100px',
+    fontSize: '11px',
     fontWeight: '700',
     letterSpacing: '1px',
-    textTransform: 'uppercase',
-    marginBottom: '16px',
-    display: 'inline-block'
+    textTransform: 'uppercase'
   },
   badgeMagenta: {
     background: 'rgba(255, 0, 127, 0.1)',
-    border: '1px solid #FF007F',
+    border: '1px solid rgba(255, 0, 127, 0.4)',
     color: '#FF007F',
     padding: '6px 16px',
-    borderRadius: '20px',
-    fontSize: '12px',
+    borderRadius: '100px',
+    fontSize: '11px',
     fontWeight: '700',
     letterSpacing: '1px',
-    textTransform: 'uppercase',
-    marginBottom: '16px',
-    display: 'inline-block'
+    textTransform: 'uppercase'
   },
-  coverTitle: {
-    fontSize: '44px',
-    fontWeight: '800',
-    lineHeight: '1.2',
-    marginBottom: '16px',
-    maxWidth: '800px'
+  sectionHeading: {
+    fontSize: '38px',
+    fontWeight: '700',
+    letterSpacing: '-0.01em',
+    marginBottom: '12px'
   },
-  cyanTextGlow: {
-    color: '#00F0FF',
-    textShadow: '0 0 20px rgba(0, 240, 255, 0.6)'
-  },
-  coverSubtitle: {
-    fontSize: '18px',
-    color: '#A0A0B0',
-    maxWidth: '620px',
+  sectionParagraph: {
+    fontSize: '17px',
+    color: '#86868B',
+    maxWidth: '700px',
     lineHeight: '1.6',
-    marginBottom: '28px'
+    marginBottom: '32px'
   },
-  taglineBox: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '10px',
-    background: 'rgba(255,255,255,0.04)',
-    padding: '8px 20px',
+  introCardsGrid: {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    gap: '20px'
+  },
+  appleCard: {
+    background: 'rgba(255, 255, 255, 0.03)',
+    border: '1px solid rgba(255, 255, 255, 0.08)',
     borderRadius: '20px',
-    border: '1px solid rgba(255,255,255,0.1)'
+    padding: '28px',
+    backdropFilter: 'blur(10px)'
   },
-  taglineDot: {
-    width: '8px',
-    height: '8px',
-    borderRadius: '50%',
-    backgroundColor: '#FF007F',
-    boxShadow: '0 0 8px #FF007F'
+  cardIcon: {
+    fontSize: '24px',
+    display: 'block',
+    marginBottom: '12px'
   },
-  taglineText: {
-    fontSize: '13px',
+  cardHeader: {
+    fontSize: '18px',
     fontWeight: '600',
-    color: '#E0E0EC'
+    marginBottom: '8px',
+    color: '#F5F5F7'
   },
-  contentLayout: {
-    display: 'flex',
-    flexDirection: 'column',
-    flexGrow: 1,
-    justifyContent: 'center'
+  cardDescription: {
+    fontSize: '14px',
+    color: '#86868B',
+    lineHeight: '1.5'
   },
-  sectionHeader: {
-    marginBottom: '24px'
-  },
-  sectionHeaderRow: {
+  pillarHeaderRow: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'flex-end',
-    marginBottom: '28px'
+    marginBottom: '32px'
   },
-  sectionTitle: {
-    fontSize: '34px',
-    fontWeight: '800',
-    marginTop: '6px'
-  },
-  accentBar: {
-    width: '100px',
-    height: '4px',
-    background: 'linear-gradient(90deg, #00F0FF 0%, #FF007F 100%)',
-    borderRadius: '2px',
-    marginTop: '12px'
-  },
-  introGrid: {
-    display: 'grid',
-    gridTemplateColumns: '1.2fr 0.8fr',
-    gap: '32px',
-    alignItems: 'center'
-  },
-  introTextCol: {},
-  bodyParagraph: {
-    fontSize: '18px',
-    lineHeight: '1.6',
-    color: '#E0E0EC',
-    marginBottom: '24px'
-  },
-  card3d: {
-    background: 'rgba(18, 18, 26, 0.8)',
-    border: '1px solid rgba(255, 255, 255, 0.08)',
-    borderRadius: '16px',
-    padding: '20px 24px',
-    boxShadow: '0 15px 30px rgba(0,0,0,0.5)'
-  },
-  cardTitleSmall: {
-    fontSize: '17px',
-    fontWeight: '700',
-    marginBottom: '6px'
-  },
-  cardTextSmall: {
-    fontSize: '14px',
-    color: '#A0A0B0',
-    lineHeight: '1.5'
-  },
-  introVisualCol: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  triangleContainer: {
-    position: 'relative',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: '20px'
-  },
-  triLabelTop: {
-    position: 'absolute',
-    top: '0',
-    fontSize: '12px',
-    fontWeight: '800',
-    color: '#00F0FF'
-  },
-  triLabelRight: {
-    position: 'absolute',
-    bottom: '10px',
-    right: '-10px',
-    fontSize: '12px',
-    fontWeight: '800',
-    color: '#FF007F'
-  },
-  triLabelLeft: {
-    position: 'absolute',
-    bottom: '10px',
-    left: '-10px',
-    fontSize: '12px',
-    fontWeight: '800',
-    color: '#FFFFFF'
-  },
-  pillarSubtitle: {
+  pillarSubText: {
     fontSize: '15px',
-    color: '#A0A0B0',
-    maxWidth: '420px',
+    color: '#86868B',
+    maxWidth: '400px',
     textAlign: 'right',
     lineHeight: '1.5'
   },
-  cardsRow: {
+  pillarGrid: {
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 1fr)',
     gap: '20px'
   },
-  card3dCol: {
-    background: 'rgba(18, 18, 26, 0.8)',
+  appleCardFeature: {
+    background: 'rgba(255, 255, 255, 0.03)',
     border: '1px solid rgba(255, 255, 255, 0.08)',
-    borderRadius: '20px',
+    borderRadius: '22px',
     padding: '28px 22px',
     display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start'
+    flexDirection: 'column'
   },
-  iconBadge: {
-    width: '48px',
-    height: '48px',
-    borderRadius: '14px',
-    background: 'rgba(255,255,255,0.05)',
+  featureIconBadge: {
+    width: '44px',
+    height: '44px',
+    borderRadius: '12px',
+    background: 'rgba(255, 255, 255, 0.05)',
     border: '1px solid',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: '22px',
-    marginBottom: '18px'
+    fontSize: '20px',
+    marginBottom: '20px'
   },
-  cardColTitle: {
-    fontSize: '18px',
-    fontWeight: '700',
-    marginBottom: '10px',
-    color: '#FFFFFF'
-  },
-  cardColText: {
-    fontSize: '14px',
-    color: '#A0A0B0',
-    lineHeight: '1.5'
-  },
-  summaryCheckIcon: {
-    width: '70px',
-    height: '70px',
+  appleCheckBadge: {
+    width: '64px',
+    height: '64px',
     borderRadius: '50%',
-    background: 'linear-gradient(135deg, #00F0FF, #FF007F)',
-    color: '#0A0A0E',
+    background: 'linear-gradient(135deg, #00F0FF 0%, #FF007F 100%)',
+    color: '#000000',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: '36px',
+    fontSize: '28px',
     fontWeight: '900',
-    marginBottom: '20px',
-    boxShadow: '0 0 30px rgba(0, 240, 255, 0.5)'
+    marginBottom: '24px',
+    boxShadow: '0 0 40px rgba(0, 240, 255, 0.4)'
   },
-  slideFooter: {
+  footerBar: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: '24px',
-    paddingTop: '20px',
+    paddingTop: '24px',
     borderTop: '1px solid rgba(255, 255, 255, 0.08)'
   },
-  dotsGroup: {
+  indicatorGroup: {
     display: 'flex',
     gap: '8px',
     alignItems: 'center'
   },
-  dotBtn: {
-    height: '10px',
-    borderRadius: '5px',
+  indicatorDot: {
+    height: '8px',
+    borderRadius: '100px',
     border: 'none',
     cursor: 'pointer',
-    transition: 'all 0.3s ease'
+    transition: 'all 0.3s cubic-bezier(0.25, 1, 0.5, 1)'
   },
-  navButtons: {
+  navGroup: {
     display: 'flex',
     gap: '12px'
   },
-  btnNav: {
-    background: 'rgba(255, 255, 255, 0.05)',
-    border: '1px solid rgba(255, 255, 255, 0.15)',
-    color: '#FFFFFF',
-    padding: '10px 20px',
-    borderRadius: '12px',
-    fontSize: '14px',
-    fontWeight: '600',
-    cursor: 'pointer',
-    transition: 'all 0.2s ease'
+  appleBtnSecondary: {
+    background: 'rgba(255, 255, 255, 0.06)',
+    border: '1px solid rgba(255, 255, 255, 0.12)',
+    color: '#F5F5F7',
+    padding: '10px 22px',
+    borderRadius: '100px',
+    fontSize: '13px',
+    fontWeight: '500',
+    cursor: 'pointer'
   },
-  btnNavPrimary: {
-    background: 'linear-gradient(90deg, rgba(0,240,255,0.2), rgba(255,0,127,0.2))',
-    borderColor: '#00F0FF',
-    color: '#00F0FF'
+  appleBtnPrimary: {
+    background: '#F5F5F7',
+    border: 'none',
+    color: '#000000',
+    padding: '10px 24px',
+    borderRadius: '100px',
+    fontSize: '13px',
+    fontWeight: '600',
+    cursor: 'pointer'
   }
 }

@@ -1,333 +1,296 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 export default function App() {
-  const [currentSlide, setCurrentSlide] = useState(0)
-
-  const slides = [
-    {
-      id: 'cover',
-      badge: 'Ciberseguridad Pro',
-      badgeColor: 'cyan',
-      title: 'La Tríada de la Ciberseguridad',
-      highlightTitle: 'Tríada CIA',
-      subtitle: 'El estándar de oro diseñado para proteger, auditar y resguardar los activos de información en la era digital.',
-      tagline: 'Diseño Pro // Estilo Apple TechChic',
-      type: 'cover'
-    },
-    {
-      id: 'intro',
-      badge: 'Modelo Fundacional',
-      badgeColor: 'magenta',
-      title: '¿Qué es el Modelo CIA?',
-      description: 'La Tríada CIA establece un marco conceptual compuesto por tres pilares interconectados. Un fallo en cualquiera de ellos compromete la seguridad completa del sistema.',
-      type: 'intro',
-      cards: [
-        {
-          icon: '✦',
-          color: '#00F0FF',
-          title: 'Protección Integral',
-          text: 'Combina barreras de red, cifrado de hardware y controles de software.'
-        },
-        {
-          icon: '🛡️',
-          color: '#FF007F',
-          title: 'Resiliencia de Negocio',
-          text: 'Mantiene la continuidad de las operaciones ante incidentes o ciberataques.'
-        }
-      ]
-    },
-    {
-      id: 'confidentiality',
-      badge: 'Pilar 01',
-      badgeColor: 'cyan',
-      title: 'Confidencialidad',
-      subtitle: 'Garantizar que los datos sean accesibles únicamente por usuarios y procesos debidamente autenticados.',
-      type: 'pillar',
-      glowColor: '#00F0FF',
-      cards: [
-        {
-          icon: '🔒',
-          title: 'Cifrado de Extremo a Extremo',
-          text: 'Protección de datos en reposo y en tránsito con esquemas criptográficos AES-256.'
-        },
-        {
-          icon: '🪪',
-          title: 'Autenticación Zero Trust',
-          text: 'Verificación continua de identidad y permisos mínimos por usuario.'
-        },
-        {
-          icon: '👁️',
-          title: 'Prevención de Fugas (DLP)',
-          text: 'Monitoreo activo para evitar la exfiltración de información sensible.'
-        }
-      ]
-    },
-    {
-      id: 'integrity',
-      badge: 'Pilar 02',
-      badgeColor: 'magenta',
-      title: 'Integridad',
-      subtitle: 'Asegurar que la información se mantenga exacta, completa y libre de alteraciones no autorizadas.',
-      type: 'pillar',
-      glowColor: '#FF007F',
-      cards: [
-        {
-          icon: '🧬',
-          title: 'Firmas & Hashes',
-          text: 'Validación con algoritmos SHA-256 para verificar la autenticidad de los archivos.'
-        },
-        {
-          icon: '✍️',
-          title: 'Control de Cambios',
-          text: 'Registros de auditoría (Audit Logs) inmutables para rastrear modificaciones.'
-        },
-        {
-          icon: '⚡',
-          title: 'No Repudio',
-          text: 'Mecanismos que impiden denegar la autoría de una transacción realizada.'
-        }
-      ]
-    },
-    {
-      id: 'availability',
-      badge: 'Pilar 03',
-      badgeColor: 'cyan',
-      title: 'Disponibilidad',
-      subtitle: 'Garantizar el acceso fluido y sin interrupciones a los datos cuando los usuarios lo requieran.',
-      type: 'pillar',
-      glowColor: '#00F0FF',
-      cards: [
-        {
-          icon: '☁️',
-          title: 'Redundancia & Clusters',
-          text: 'Infraestructura de alta disponibilidad sin puntos únicos de fallo (SPOF).'
-        },
-        {
-          icon: '🔄',
-          title: 'Respaldos Automatizados',
-          text: 'Backups frecuentes con recuperación rápida ante desastres (Disaster Recovery).'
-        },
-        {
-          icon: '🛡️',
-          title: 'Mitigación DDoS',
-          text: 'Filtros de tráfico para absorber ataques masivos de denegación de servicio.'
-        }
-      ]
-    },
-    {
-      id: 'summary',
-      badge: 'Conclusión',
-      badgeColor: 'magenta',
-      title: 'Seguridad Digital en Armonía',
-      subtitle: 'El equilibrio entre Confidencialidad, Integridad y Disponibilidad define el estándar de excelencia en seguridad informática.',
-      type: 'summary'
-    }
-  ]
-
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length)
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
-
-  const slide = slides[currentSlide]
+  const userGithub = 'LaMambaKukun'
 
   return (
     <div style={styles.appWrapper}>
-      {/* Dynamic Background Glows */}
+      {/* Luces de fondo estilo Apple / TechChic */}
       <div style={styles.ambientCyan}></div>
       <div style={styles.ambientMagenta}></div>
+      <div style={styles.ambientCenter}></div>
 
-      {/* Main Glassmorphism Card Container */}
-      <main style={styles.appleContainer}>
-        {/* Navigation Bar */}
-        <header style={styles.headerBar}>
-          <div style={styles.logoPill}>
-            <span style={styles.logoDot}></span>
-            <span style={styles.logoText}>INFO_NAVSIU // APPLE TECHCHIC</span>
-          </div>
-          <div style={styles.slideCounter}>
-            0{currentSlide + 1} <span style={{ color: 'rgba(255,255,255,0.3)' }}>/</span> 0{slides.length}
-          </div>
-        </header>
+      {/* Hero Header */}
+      <header style={styles.heroSection}>
+        <div style={styles.logoPill}>
+          <span style={styles.logoDot}></span>
+          <span style={styles.logoText}>INFOGRAFÍA INTERACTIVA // TECHCHIC</span>
+        </div>
 
-        {/* COVER SLIDE */}
-        {slide.type === 'cover' && (
-          <div style={styles.coverView}>
-            <span style={slide.badgeColor === 'cyan' ? styles.badgeCyan : styles.badgeMagenta}>
-              {slide.badge}
-            </span>
-            <h1 style={styles.appleHeroTitle}>
-              {slide.title}
-            </h1>
-            <p style={styles.appleHeroSubtitle}>{slide.subtitle}</p>
+        <span style={styles.badgeCyan}>Modelos de Ciberseguridad</span>
 
-            {/* 3D Glass Pill Elements */}
-            <div style={styles.triadPillGroup}>
-              <div style={{ ...styles.triadGlassItem, borderColor: '#00F0FF' }}>
-                <span style={{ color: '#00F0FF', fontWeight: '800' }}>C</span> Confidencialidad
-              </div>
-              <div style={{ ...styles.triadGlassItem, borderColor: '#FF007F' }}>
-                <span style={{ color: '#FF007F', fontWeight: '800' }}>I</span> Integridad
-              </div>
-              <div style={{ ...styles.triadGlassItem, borderColor: '#00F0FF' }}>
-                <span style={{ color: '#00F0FF', fontWeight: '800' }}>A</span> Disponibilidad
-              </div>
+        <h1 style={styles.heroTitle}>
+          La Tríada de la <br />
+          <span style={styles.gradientText}>Ciberseguridad</span>
+        </h1>
+
+        <p style={styles.heroSubtitle}>
+          El modelo fundamental diseñado para proteger, auditar y resguardar los activos de información en la era digital: <strong>Confidencialidad</strong>, <strong>Integridad</strong> y <strong>Disponibilidad</strong>.
+        </p>
+
+        {/* C.I.A. Triad Pills */}
+        <div style={styles.triadPillGroup}>
+          <a href="#confidencialidad" style={{ ...styles.triadGlassItem, borderColor: 'rgba(0, 240, 255, 0.5)' }}>
+            <span style={{ color: '#00F0FF', fontWeight: '800' }}>C</span> Confidencialidad
+          </a>
+          <a href="#integridad" style={{ ...styles.triadGlassItem, borderColor: 'rgba(255, 0, 127, 0.5)' }}>
+            <span style={{ color: '#FF007F', fontWeight: '800' }}>I</span> Integridad
+          </a>
+          <a href="#disponibilidad" style={{ ...styles.triadGlassItem, borderColor: 'rgba(0, 240, 255, 0.5)' }}>
+            <span style={{ color: '#00F0FF', fontWeight: '800' }}>A</span> Disponibilidad
+          </a>
+        </div>
+      </header>
+
+      {/* Sección 1: ¿Qué es la Tríada CIA? */}
+      <section style={styles.sectionContainer}>
+        <div style={styles.sectionHeader}>
+          <span style={styles.badgeMagenta}>Fundamento Esencial</span>
+          <h2 style={styles.sectionTitle}>¿Qué es el Modelo CIA?</h2>
+          <p style={styles.sectionDescription}>
+            Un marco conceptual de referencia mundial. Un fallo o brecha en cualquiera de estos tres pilares compromete la resiliencia y estabilidad de todo el sistema informático.
+          </p>
+        </div>
+
+        <div style={styles.gridTwoColumns}>
+          <div style={{ ...styles.appleCard, borderLeft: '4px solid #00F0FF' }}>
+            <div style={styles.cardHeaderRow}>
+              <span style={{ fontSize: '24px' }}>⚡</span>
+              <h3 style={{ ...styles.cardTitle, color: '#00F0FF' }}>Enfoque Holístico</h3>
             </div>
+            <p style={styles.cardBody}>
+              Ninguno de los pilares actúa por separado. Un sistema seguro requiere equilibrar la privacidad del dato con la fluidez del acceso de los usuarios legítimos.
+            </p>
           </div>
-        )}
 
-        {/* INTRO SLIDE */}
-        {slide.type === 'intro' && (
-          <div style={styles.contentView}>
-            <div style={styles.badgeRow}>
-              <span style={styles.badgeMagenta}>{slide.badge}</span>
+          <div style={{ ...styles.appleCard, borderLeft: '4px solid #FF007F' }}>
+            <div style={styles.cardHeaderRow}>
+              <span style={{ fontSize: '24px' }}>🛡️</span>
+              <h3 style={{ ...styles.cardTitle, color: '#FF007F' }}>Gestión de Riesgos</h3>
             </div>
-            <h2 style={styles.sectionHeading}>{slide.title}</h2>
-            <p style={styles.sectionParagraph}>{slide.description}</p>
-
-            <div style={styles.introCardsGrid}>
-              {slide.cards.map((c, i) => (
-                <div key={i} style={{ ...styles.appleCard, borderTop: `2px solid ${c.color}` }}>
-                  <span style={{ ...styles.cardIcon, color: c.color }}>{c.icon}</span>
-                  <h3 style={styles.cardHeader}>{c.title}</h3>
-                  <p style={styles.cardDescription}>{c.text}</p>
-                </div>
-              ))}
-            </div>
+            <p style={styles.cardBody}>
+              Permite a los ingenieros y analistas clasificar amenazas, mitigar vulnerabilidades y evaluar el impacto de posibles ataques informáticos.
+            </p>
           </div>
-        )}
+        </div>
+      </section>
 
-        {/* PILLAR SLIDES */}
-        {slide.type === 'pillar' && (
-          <div style={styles.contentView}>
-            <div style={styles.pillarHeaderRow}>
-              <div>
-                <span style={slide.badgeColor === 'cyan' ? styles.badgeCyan : styles.badgeMagenta}>
-                  {slide.badge}
-                </span>
-                <h2 style={{ ...styles.sectionHeading, color: slide.glowColor }}>
-                  {slide.title}
-                </h2>
-              </div>
-              <p style={styles.pillarSubText}>{slide.subtitle}</p>
-            </div>
-
-            <div style={styles.pillarGrid}>
-              {slide.cards.map((c, i) => (
-                <div key={i} style={styles.appleCardFeature}>
-                  <div style={{ ...styles.featureIconBadge, borderColor: slide.glowColor }}>
-                    <span>{c.icon}</span>
-                  </div>
-                  <h3 style={styles.cardHeader}>{c.title}</h3>
-                  <p style={styles.cardDescription}>{c.text}</p>
-                </div>
-              ))}
-            </div>
+      {/* Sección 2: Confidencialidad */}
+      <section id="confidencialidad" style={styles.sectionContainer}>
+        <div style={styles.pillarHeader}>
+          <div>
+            <span style={styles.badgeCyan}>Pilar 01</span>
+            <h2 style={{ ...styles.sectionTitle, color: '#00F0FF', textShadow: '0 0 25px rgba(0, 240, 255, 0.3)' }}>
+              Confidencialidad
+            </h2>
           </div>
-        )}
+          <p style={styles.pillarSubtitle}>
+            Garantizar que la información sea accesible únicamente por usuarios, procesos o sistemas debidamente autorizados.
+          </p>
+        </div>
 
-        {/* SUMMARY SLIDE */}
-        {slide.type === 'summary' && (
-          <div style={styles.coverView}>
-            <div style={styles.appleCheckBadge}>✓</div>
-            <span style={styles.badgeMagenta}>{slide.badge}</span>
-            <h2 style={styles.appleHeroTitle}>{slide.title}</h2>
-            <p style={styles.appleHeroSubtitle}>{slide.subtitle}</p>
-          </div>
-        )}
-
-        {/* Footer Navigation */}
-        <footer style={styles.footerBar}>
-          <div style={styles.indicatorGroup}>
-            {slides.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentSlide(idx)}
-                style={{
-                  ...styles.indicatorDot,
-                  backgroundColor: currentSlide === idx ? '#00F0FF' : 'rgba(255,255,255,0.2)',
-                  width: currentSlide === idx ? '32px' : '8px'
-                }}
-              />
-            ))}
+        <div style={styles.gridThreeColumns}>
+          <div style={styles.appleCardFeature}>
+            <div style={{ ...styles.featureIconBox, borderColor: '#00F0FF' }}>🔐</div>
+            <h3 style={styles.cardTitle}>Cifrado de Extremo a Extremo</h3>
+            <p style={styles.cardBody}>
+              Protección de datos tanto en reposo como en tránsito con algoritmos robustos como AES-256 y TLS 1.3.
+            </p>
           </div>
 
-          <div style={styles.navGroup}>
-            <button onClick={prevSlide} style={styles.appleBtnSecondary}>
-              Anterior
-            </button>
-            <button onClick={nextSlide} style={styles.appleBtnPrimary}>
-              Siguiente
-            </button>
+          <div style={styles.appleCardFeature}>
+            <div style={{ ...styles.featureIconBox, borderColor: '#00F0FF' }}>🪪</div>
+            <h3 style={styles.cardTitle}>Autenticación Zero Trust</h3>
+            <p style={styles.cardBody}>
+              Verificación continua de identidad mediante Múltiple Factor de Autenticación (MFA) y principios de menor privilegio.
+            </p>
           </div>
-        </footer>
-      </main>
+
+          <div style={styles.appleCardFeature}>
+            <div style={{ ...styles.featureIconBox, borderColor: '#00F0FF' }}>👁️</div>
+            <h3 style={styles.cardTitle}>Prevención de Fugas (DLP)</h3>
+            <p style={styles.cardBody}>
+              Supervisión activa de datos sensibles para evitar la exfiltración o divulgación no autorizada.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Sección 3: Integridad */}
+      <section id="integridad" style={styles.sectionContainer}>
+        <div style={styles.pillarHeader}>
+          <div>
+            <span style={styles.badgeMagenta}>Pilar 02</span>
+            <h2 style={{ ...styles.sectionTitle, color: '#FF007F', textShadow: '0 0 25px rgba(255, 0, 127, 0.3)' }}>
+              Integridad
+            </h2>
+          </div>
+          <p style={styles.pillarSubtitle}>
+            Asegurar que la información se mantenga exacta, completa, auténtica y libre de modificaciones malintencionadas.
+          </p>
+        </div>
+
+        <div style={styles.gridThreeColumns}>
+          <div style={styles.appleCardFeature}>
+            <div style={{ ...styles.featureIconBox, borderColor: '#FF007F' }}>🧬</div>
+            <h3 style={styles.cardTitle}>Funciones Hash</h3>
+            <p style={styles.cardBody}>
+              Generación de huellas digitales mediante SHA-256 para verificar si un archivo o paquete ha sido alterado.
+            </p>
+          </div>
+
+          <div style={styles.appleCardFeature}>
+            <div style={{ ...styles.featureIconBox, borderColor: '#FF007F' }}>✍️</div>
+            <h3 style={styles.cardTitle}>Firmas Digitales</h3>
+            <p style={styles.cardBody}>
+              Mecanismos criptográficos que garantizan la autenticidad del emisor y aseguran el principio de no repudio.
+            </p>
+          </div>
+
+          <div style={styles.appleCardFeature}>
+            <div style={{ ...styles.featureIconBox, borderColor: '#FF007F' }}>📜</div>
+            <h3 style={styles.cardTitle}>Auditoría & Logs</h3>
+            <p style={styles.cardBody}>
+              Registros inmutables y trazabilidad de cambios en bases de datos y sistemas críticos.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Sección 4: Disponibilidad */}
+      <section id="disponibilidad" style={styles.sectionContainer}>
+        <div style={styles.pillarHeader}>
+          <div>
+            <span style={styles.badgeCyan}>Pilar 03</span>
+            <h2 style={{ ...styles.sectionTitle, color: '#00F0FF', textShadow: '0 0 25px rgba(0, 240, 255, 0.3)' }}>
+              Disponibilidad
+            </h2>
+          </div>
+          <p style={styles.pillarSubtitle}>
+            Garantizar el acceso oportuno, estable y confiable a las plataformas y datos cuando los usuarios lo requieran.
+          </p>
+        </div>
+
+        <div style={styles.gridThreeColumns}>
+          <div style={styles.appleCardFeature}>
+            <div style={{ ...styles.featureIconBox, borderColor: '#00F0FF' }}>☁️</div>
+            <h3 style={styles.cardTitle}>Redundancia & Clusters</h3>
+            <p style={styles.cardBody}>
+              Sistemas duplicados y balanceo de carga para evitar puntos únicos de fallo (SPOF) en la infraestructura.
+            </p>
+          </div>
+
+          <div style={styles.appleCardFeature}>
+            <div style={{ ...styles.featureIconBox, borderColor: '#00F0FF' }}>🔄</div>
+            <h3 style={styles.cardTitle}>Backups Automatizados</h3>
+            <p style={styles.cardBody}>
+              Copias de seguridad periódicas y planes de recuperación ante desastres (DRP) probados.
+            </p>
+          </div>
+
+          <div style={styles.appleCardFeature}>
+            <div style={{ ...styles.featureIconBox, borderColor: '#00F0FF' }}>🛡️</div>
+            <h3 style={styles.cardTitle}>Mitigación DDoS</h3>
+            <p style={styles.cardBody}>
+              Filtros avanzados contra ataques masivos de denegación de servicio distribuidos.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Sección 5: Conclusión & Autoría */}
+      <footer style={styles.footerSection}>
+        <div style={styles.conclusionBox}>
+          <div style={styles.checkBadge}>✓</div>
+          <span style={styles.badgeMagenta}>Resumen Final</span>
+          <h2 style={styles.conclusionTitle}>Seguridad Digital en Armonía</h2>
+          <p style={styles.conclusionText}>
+            La Tríada de la Ciberseguridad no es un producto, sino una estrategia continua. Mantener el equilibrio entre Confidencialidad, Integridad y Disponibilidad es la clave para la resiliencia en el mundo moderno.
+          </p>
+
+          {/* Créditos de Autoría GitHub */}
+          <div style={styles.authorBadge}>
+            <span style={styles.authorLabel}>Creado y diseñado por</span>
+            <a
+              href={`https://github.com/${userGithub}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={styles.authorLink}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style={{ marginRight: '8px' }}>
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              @{userGithub}
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
 
-// Apple-inspired Dark Glassmorphism Styles
+// Estilos Infografía Vertical (Estilo Apple Pro)
 const styles = {
   appWrapper: {
     backgroundColor: '#000000',
     minHeight: '100vh',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: '32px 20px',
     fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif',
     color: '#F5F5F7',
     position: 'relative',
-    overflow: 'hidden'
+    overflowX: 'hidden',
+    paddingBottom: '80px'
   },
   ambientCyan: {
-    position: 'absolute',
-    top: '-10%',
-    left: '20%',
-    width: '500px',
-    height: '500px',
+    position: 'fixed',
+    top: '-15%',
+    left: '10%',
+    width: '600px',
+    height: '600px',
     borderRadius: '50%',
-    background: 'radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, rgba(0,0,0,0) 70%)',
-    pointerEvents: 'none'
+    background: 'radial-gradient(circle, rgba(0, 240, 255, 0.12) 0%, rgba(0,0,0,0) 70%)',
+    pointerEvents: 'none',
+    zIndex: 0
   },
   ambientMagenta: {
-    position: 'absolute',
+    position: 'fixed',
     bottom: '-10%',
-    right: '20%',
-    width: '500px',
-    height: '500px',
+    right: '10%',
+    width: '600px',
+    height: '600px',
     borderRadius: '50%',
-    background: 'radial-gradient(circle, rgba(255, 0, 127, 0.15) 0%, rgba(0,0,0,0) 70%)',
-    pointerEvents: 'none'
+    background: 'radial-gradient(circle, rgba(255, 0, 127, 0.12) 0%, rgba(0,0,0,0) 70%)',
+    pointerEvents: 'none',
+    zIndex: 0
   },
-  appleContainer: {
-    width: '100%',
-    maxWidth: '1000px',
-    minHeight: '600px',
-    backgroundColor: 'rgba(22, 22, 26, 0.75)',
-    border: '1px solid rgba(255, 255, 255, 0.12)',
-    borderRadius: '30px',
-    boxShadow: '0 40px 80px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
-    backdropFilter: 'blur(30px)',
-    WebkitBackdropFilter: 'blur(30px)',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    padding: '40px 52px',
+  ambientCenter: {
+    position: 'fixed',
+    top: '40%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '800px',
+    height: '800px',
+    borderRadius: '50%',
+    background: 'radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, rgba(0,0,0,0) 70%)',
+    pointerEvents: 'none',
+    zIndex: 0
+  },
+  heroSection: {
+    maxWidth: '900px',
+    margin: '0 auto',
+    padding: '100px 24px 60px 24px',
+    textAlign: 'center',
     position: 'relative',
-    zIndex: 2
-  },
-  headerBar: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center'
+    zIndex: 1
   },
   logoPill: {
-    display: 'flex',
+    display: 'inline-flex',
     alignItems: 'center',
     gap: '10px',
     background: 'rgba(255, 255, 255, 0.05)',
-    padding: '8px 16px',
+    padding: '8px 20px',
     borderRadius: '100px',
-    border: '1px solid rgba(255, 255, 255, 0.08)'
+    border: '1px solid rgba(255, 255, 255, 0.1)',
+    marginBottom: '28px'
   },
   logoDot: {
     width: '8px',
@@ -337,67 +300,145 @@ const styles = {
     boxShadow: '0 0 10px #00F0FF'
   },
   logoText: {
-    fontSize: '11px',
+    fontSize: '12px',
     fontWeight: '700',
     color: '#86868B',
     letterSpacing: '1.2px'
   },
-  slideCounter: {
-    fontSize: '13px',
-    fontWeight: '600',
-    color: '#00F0FF',
-    letterSpacing: '1px'
+  heroTitle: {
+    fontSize: '60px',
+    fontWeight: '800',
+    letterSpacing: '-0.03em',
+    lineHeight: '1.08',
+    marginTop: '20px',
+    marginBottom: '24px'
   },
-  coverView: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    textAlign: 'center',
-    margin: 'auto 0'
-  },
-  appleHeroTitle: {
-    fontSize: '48px',
-    fontWeight: '700',
-    letterSpacing: '-0.02em',
-    lineHeight: '1.1',
-    marginTop: '16px',
-    marginBottom: '16px',
-    background: 'linear-gradient(180deg, #FFFFFF 0%, #A1A1A6 100%)',
+  gradientText: {
+    background: 'linear-gradient(135deg, #00F0FF 0%, #FF007F 100%)',
     WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent'
+    WebkitTextFillColor: 'transparent',
+    filter: 'drop-shadow(0 0 30px rgba(0, 240, 255, 0.3))'
   },
-  appleHeroSubtitle: {
-    fontSize: '19px',
-    color: '#86868B',
-    maxWidth: '640px',
-    lineHeight: '1.5',
-    fontWeight: '400',
-    marginBottom: '32px'
+  heroSubtitle: {
+    fontSize: '20px',
+    color: '#A1A1A6',
+    maxWidth: '720px',
+    margin: '0 auto 40px auto',
+    lineHeight: '1.6',
+    fontWeight: '400'
   },
   triadPillGroup: {
     display: 'flex',
     gap: '16px',
-    flexWrap: 'wrap',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    flexWrap: 'wrap'
   },
   triadGlassItem: {
-    background: 'rgba(255, 255, 255, 0.03)',
+    background: 'rgba(22, 22, 26, 0.8)',
     border: '1px solid',
     borderRadius: '100px',
-    padding: '12px 24px',
-    fontSize: '14px',
+    padding: '12px 28px',
+    fontSize: '15px',
     fontWeight: '500',
     color: '#F5F5F7',
-    backdropFilter: 'blur(10px)'
+    textDecoration: 'none',
+    backdropFilter: 'blur(20px)',
+    boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
+    transition: 'transform 0.2s ease'
   },
-  contentView: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    margin: 'auto 0'
+  sectionContainer: {
+    maxWidth: '1000px',
+    margin: '0 auto 80px auto',
+    padding: '0 24px',
+    position: 'relative',
+    zIndex: 1
   },
-  badgeRow: {
+  sectionHeader: {
+    marginBottom: '32px'
+  },
+  sectionTitle: {
+    fontSize: '40px',
+    fontWeight: '700',
+    letterSpacing: '-0.02em',
+    marginTop: '12px',
     marginBottom: '12px'
+  },
+  sectionDescription: {
+    fontSize: '18px',
+    color: '#86868B',
+    maxWidth: '750px',
+    lineHeight: '1.6'
+  },
+  pillarHeader: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
+    marginBottom: '36px',
+    flexWrap: 'wrap',
+    gap: '16px'
+  },
+  pillarSubtitle: {
+    fontSize: '16px',
+    color: '#86868B',
+    maxWidth: '440px',
+    lineHeight: '1.5'
+  },
+  gridTwoColumns: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+    gap: '24px'
+  },
+  gridThreeColumns: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+    gap: '24px'
+  },
+  appleCard: {
+    background: 'rgba(22, 22, 26, 0.75)',
+    border: '1px solid rgba(255, 255, 255, 0.1)',
+    borderRadius: '24px',
+    padding: '32px',
+    backdropFilter: 'blur(20px)',
+    boxShadow: '0 20px 40px rgba(0, 0, 0, 0.6)'
+  },
+  appleCardFeature: {
+    background: 'rgba(22, 22, 26, 0.75)',
+    border: '1px solid rgba(255, 255, 255, 0.1)',
+    borderRadius: '24px',
+    padding: '32px 28px',
+    backdropFilter: 'blur(20px)',
+    boxShadow: '0 20px 40px rgba(0, 0, 0, 0.6)',
+    display: 'flex',
+    flexDirection: 'column'
+  },
+  cardHeaderRow: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '12px',
+    marginBottom: '12px'
+  },
+  cardTitle: {
+    fontSize: '20px',
+    fontWeight: '600',
+    color: '#F5F5F7',
+    marginBottom: '10px'
+  },
+  cardBody: {
+    fontSize: '15px',
+    color: '#86868B',
+    lineHeight: '1.6'
+  },
+  featureIconBox: {
+    width: '48px',
+    height: '48px',
+    borderRadius: '16px',
+    background: 'rgba(255, 255, 255, 0.04)',
+    border: '1px solid',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '22px',
+    marginBottom: '20px'
   },
   badgeCyan: {
     background: 'rgba(0, 240, 255, 0.1)',
@@ -405,10 +446,11 @@ const styles = {
     color: '#00F0FF',
     padding: '6px 16px',
     borderRadius: '100px',
-    fontSize: '11px',
+    fontSize: '12px',
     fontWeight: '700',
     letterSpacing: '1px',
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
+    display: 'inline-block'
   },
   badgeMagenta: {
     background: 'rgba(255, 0, 127, 0.1)',
@@ -416,91 +458,32 @@ const styles = {
     color: '#FF007F',
     padding: '6px 16px',
     borderRadius: '100px',
-    fontSize: '11px',
+    fontSize: '12px',
     fontWeight: '700',
     letterSpacing: '1px',
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
+    display: 'inline-block'
   },
-  sectionHeading: {
-    fontSize: '38px',
-    fontWeight: '700',
-    letterSpacing: '-0.01em',
-    marginBottom: '12px'
+  footerSection: {
+    maxWidth: '1000px',
+    margin: '100px auto 0 auto',
+    padding: '0 24px',
+    position: 'relative',
+    zIndex: 1
   },
-  sectionParagraph: {
-    fontSize: '17px',
-    color: '#86868B',
-    maxWidth: '700px',
-    lineHeight: '1.6',
-    marginBottom: '32px'
-  },
-  introCardsGrid: {
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
-    gap: '20px'
-  },
-  appleCard: {
-    background: 'rgba(255, 255, 255, 0.03)',
-    border: '1px solid rgba(255, 255, 255, 0.08)',
-    borderRadius: '20px',
-    padding: '28px',
-    backdropFilter: 'blur(10px)'
-  },
-  cardIcon: {
-    fontSize: '24px',
-    display: 'block',
-    marginBottom: '12px'
-  },
-  cardHeader: {
-    fontSize: '18px',
-    fontWeight: '600',
-    marginBottom: '8px',
-    color: '#F5F5F7'
-  },
-  cardDescription: {
-    fontSize: '14px',
-    color: '#86868B',
-    lineHeight: '1.5'
-  },
-  pillarHeaderRow: {
+  conclusionBox: {
+    background: 'rgba(22, 22, 26, 0.85)',
+    border: '1px solid rgba(255, 255, 255, 0.12)',
+    borderRadius: '32px',
+    padding: '56px 40px',
+    textAlign: 'center',
+    backdropFilter: 'blur(30px)',
+    boxShadow: '0 30px 60px rgba(0, 0, 0, 0.8)',
     display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'flex-end',
-    marginBottom: '32px'
+    flexDirection: 'column',
+    alignItems: 'center'
   },
-  pillarSubText: {
-    fontSize: '15px',
-    color: '#86868B',
-    maxWidth: '400px',
-    textAlign: 'right',
-    lineHeight: '1.5'
-  },
-  pillarGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
-    gap: '20px'
-  },
-  appleCardFeature: {
-    background: 'rgba(255, 255, 255, 0.03)',
-    border: '1px solid rgba(255, 255, 255, 0.08)',
-    borderRadius: '22px',
-    padding: '28px 22px',
-    display: 'flex',
-    flexDirection: 'column'
-  },
-  featureIconBadge: {
-    width: '44px',
-    height: '44px',
-    borderRadius: '12px',
-    background: 'rgba(255, 255, 255, 0.05)',
-    border: '1px solid',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: '20px',
-    marginBottom: '20px'
-  },
-  appleCheckBadge: {
+  checkBadge: {
     width: '64px',
     height: '64px',
     borderRadius: '50%',
@@ -511,50 +494,45 @@ const styles = {
     justifyContent: 'center',
     fontSize: '28px',
     fontWeight: '900',
-    marginBottom: '24px',
-    boxShadow: '0 0 40px rgba(0, 240, 255, 0.4)'
+    marginBottom: '20px',
+    boxShadow: '0 0 30px rgba(0, 240, 255, 0.4)'
   },
-  footerBar: {
-    display: 'flex',
-    justifyContent: 'space-between',
+  conclusionTitle: {
+    fontSize: '36px',
+    fontWeight: '700',
+    marginTop: '16px',
+    marginBottom: '16px'
+  },
+  conclusionText: {
+    fontSize: '18px',
+    color: '#86868B',
+    maxWidth: '650px',
+    lineHeight: '1.6',
+    marginBottom: '36px'
+  },
+  authorBadge: {
+    display: 'inline-flex',
+    flexDirection: 'column',
     alignItems: 'center',
-    paddingTop: '24px',
-    borderTop: '1px solid rgba(255, 255, 255, 0.08)'
-  },
-  indicatorGroup: {
-    display: 'flex',
     gap: '8px',
-    alignItems: 'center'
+    background: 'rgba(255, 255, 255, 0.04)',
+    border: '1px solid rgba(255, 255, 255, 0.1)',
+    padding: '16px 28px',
+    borderRadius: '100px'
   },
-  indicatorDot: {
-    height: '8px',
-    borderRadius: '100px',
-    border: 'none',
-    cursor: 'pointer',
-    transition: 'all 0.3s cubic-bezier(0.25, 1, 0.5, 1)'
+  authorLabel: {
+    fontSize: '12px',
+    color: '#86868B',
+    textTransform: 'uppercase',
+    letterSpacing: '1px',
+    fontWeight: '600'
   },
-  navGroup: {
+  authorLink: {
     display: 'flex',
-    gap: '12px'
-  },
-  appleBtnSecondary: {
-    background: 'rgba(255, 255, 255, 0.06)',
-    border: '1px solid rgba(255, 255, 255, 0.12)',
-    color: '#F5F5F7',
-    padding: '10px 22px',
-    borderRadius: '100px',
-    fontSize: '13px',
-    fontWeight: '500',
-    cursor: 'pointer'
-  },
-  appleBtnPrimary: {
-    background: '#F5F5F7',
-    border: 'none',
-    color: '#000000',
-    padding: '10px 24px',
-    borderRadius: '100px',
-    fontSize: '13px',
-    fontWeight: '600',
-    cursor: 'pointer'
+    alignItems: 'center',
+    fontSize: '16px',
+    fontWeight: '700',
+    color: '#00F0FF',
+    textDecoration: 'none'
   }
 }

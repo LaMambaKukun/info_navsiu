@@ -6,7 +6,6 @@ export default function App() {
   const [expandedCard, setExpandedCard] = useState(null)
   const [scrollProgress, setScrollProgress] = useState(0)
 
-  // Barra de progreso de lectura interactiva
   useEffect(() => {
     const handleScroll = () => {
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight
@@ -27,91 +26,100 @@ export default function App() {
       id: 'conf-1',
       pillar: 'confidencialidad',
       color: '#00F0FF',
-      badge: 'Pilar 01 — Confidencialidad',
+      code: 'CONF_01',
+      badge: '[PILAR 01 :: CONFIDENCIALIDAD]',
       icon: '🔐',
       title: 'Cifrado de Extremo a Extremo',
-      summary: 'Protección de datos tanto en reposo como en tránsito.',
-      detail: 'Aplica algoritmos simétricos y asimétricos avanzados como AES-256 y TLS 1.3. Asegura que incluso si un paquete de datos es interceptado en la red, sea completamente incomprensible sin la clave privada correspondiente.'
+      summary: 'Protección de datos en reposo y en tránsito mediante esquemas criptográficos.',
+      detail: 'Implementación de algoritmos simétricos y asimétricos avanzados (AES-256, TLS 1.3). Garantiza la inviolabilidad del paquete de datos ante escuchas o exfiltraciones en la red.'
     },
     {
       id: 'conf-2',
       pillar: 'confidencialidad',
       color: '#00F0FF',
-      badge: 'Pilar 01 — Confidencialidad',
+      code: 'CONF_02',
+      badge: '[PILAR 01 :: CONFIDENCIALIDAD]',
       icon: '🪪',
       title: 'Autenticación Zero Trust & MFA',
-      summary: 'Verificación continua de identidad antes de otorgar acceso.',
-      detail: 'Implementa el principio de "nunca confiar, siempre verificar". Requiere Doble Factor de Autenticación (MFA) con tokens temporales (TOTP) o biometría y restringe permisos al mínimo necesario (PoLP).'
+      summary: 'Verificación estricta de identidad bajo el paradigma de menor privilegio.',
+      detail: 'Nunca confiar, siempre verificar. Exige tokens dinámicos temporales (TOTP), biometría y restricción contextual de permisos antes de conceder acceso a los activos.'
     },
     {
       id: 'conf-3',
       pillar: 'confidencialidad',
       color: '#00F0FF',
-      badge: 'Pilar 01 — Confidencialidad',
+      code: 'CONF_03',
+      badge: '[PILAR 01 :: CONFIDENCIALIDAD]',
       icon: '👁️',
       title: 'Prevención de Fugas (DLP)',
-      summary: 'Monitoreo activo para evitar la exfiltración de información.',
-      detail: 'Las soluciones DLP analizan el tráfico saliente y las acciones del endpoint para detectar patrones sensibles (tarjetas de crédito, claves API, datos de clientes) e impedir su copia o envío no autorizado.'
+      summary: 'Monitoreo activo para evitar la exfiltración de información confidencial.',
+      detail: 'Inspección de tráfico saliente y control de endpoints para bloquear la copia o transferencia no autorizada de credenciales, claves API o datos sensibles.'
     },
     {
       id: 'int-1',
       pillar: 'integridad',
-      color: '#FF007F',
-      badge: 'Pilar 02 — Integridad',
+      color: '#FF0055',
+      code: 'INT_01',
+      badge: '[PILAR 02 :: INTEGRIDAD]',
       icon: '🧬',
       title: 'Funciones Hash Criptográficas',
-      summary: 'Validación de código y archivos mediante huellas digitales.',
-      detail: 'Mediante algoritmos como SHA-256, cualquier alteración de un solo bit en un documento o binario cambiará drásticamente el valor hash del archivo, alertando sobre modificaciones o corrupción.'
+      summary: 'Validación de archivos y binarios mediante huellas SHA-256.',
+      detail: 'Cualquier modificación mínima en un solo bit del archivo alterará drásticamente el valor hash del sistema, alertando inmediatamente sobre manipulación o corrupción.'
     },
     {
       id: 'int-2',
       pillar: 'integridad',
-      color: '#FF007F',
-      badge: 'Pilar 02 — Integridad',
+      color: '#FF0055',
+      code: 'INT_02',
+      badge: '[PILAR 02 :: INTEGRIDAD]',
       icon: '✍️',
       title: 'Firmas Digitales & No Repudio',
-      summary: 'Garantía de origen auténtico e inalterabilidad de documentos.',
-      detail: 'Combina criptografía asimétrica y hashes para asegurar la identidad inequívoca del remitente, impidiendo que este pueda negar la autoría o envío de una transacción digital.'
+      summary: 'Garantía de origen auténtico e inalterabilidad de transacciones.',
+      detail: 'Uso de pares de claves pública/privada para validar inequívocamente al emisor e impedir que este rechace la autoría de una operación en el sistema.'
     },
     {
       id: 'int-3',
       pillar: 'integridad',
-      color: '#FF007F',
-      badge: 'Pilar 02 — Integridad',
+      color: '#FF0055',
+      code: 'INT_03',
+      badge: '[PILAR 02 :: INTEGRIDAD]',
       icon: '📜',
-      title: 'Trazabilidad & Logs Inmutables',
-      summary: 'Registros de auditoría blindados contra manipulaciones.',
-      detail: 'Uso de tecnologías de contabilidad distribuida o servidores de registros centralizados de solo escritura (WORM) para garantizar la auditoría técnica post-incidente.'
+      title: 'Auditoría & Logs Inmutables',
+      summary: 'Registros blindados para análisis forense y trazabilidad.',
+      detail: 'Consolidación de eventos en registros de solo lectura (WORM) o esquemas distribuidos para auditorías técnicas irrefutables post-incidente.'
     },
     {
       id: 'disp-1',
       pillar: 'disponibilidad',
       color: '#00F0FF',
-      badge: 'Pilar 03 — Disponibilidad',
+      code: 'DISP_01',
+      badge: '[PILAR 03 :: DISPONIBILIDAD]',
       icon: '☁️',
-      title: 'Redundancia & Alta Disponibilidad',
-      summary: 'Infraestructura en cluster sin puntos únicos de falla (SPOF).',
-      detail: 'Despliegue distribuido en múltiples zonas de disponibilidad cloud, balanceadores de carga de capa 7 y arquitecturas de microservicios con recuperación automática.'
+      title: 'Redundancia & Clusters Alta Disponibilidad',
+      summary: 'Infraestructura tolerante a fallos sin puntos únicos de interrupción.',
+      detail: 'Nodos distribuidos en múltiples zonas de disponibilidad, balanceadores de carga de Capa 7 y clusters con autoscaling para absorber picos imprevistos.'
     },
     {
       id: 'disp-2',
       pillar: 'disponibilidad',
       color: '#00F0FF',
-      badge: 'Pilar 03 — Disponibilidad',
+      code: 'DISP_02',
+      badge: '[PILAR 03 :: DISPONIBILIDAD]',
       icon: '🔄',
-      title: 'Respaldos & Planes DRP',
-      summary: 'Estrategias de copias de seguridad y recuperación ante desastres.',
-      detail: 'Aplicación de la regla de respaldo 3-2-1 (3 copias, 2 medios distintos, 1 fuera de sitio) e integración con métricas estrictas de RTO (Tiempo de Recuperación) y RPO (Punto de Recuperación).'
+      title: 'Respaldos Automatizados & DRP',
+      summary: 'Copias de seguridad bajo la regla 3-2-1 y planes de recuperación.',
+      detail: 'Almacenamiento de respaldos fuera de sitio con cumplimiento estricto de métricas RTO (Tiempo de Recuperación) y RPO (Punto de Recuperación).'
     },
     {
       id: 'disp-3',
       pillar: 'disponibilidad',
       color: '#00F0FF',
-      badge: 'Pilar 03 — Disponibilidad',
+      code: 'DISP_03',
+      badge: '[PILAR 03 :: DISPONIBILIDAD]',
       icon: '🛡️',
       title: 'Mitigación Activa de DDoS',
-      summary: 'Filtros de tráfico volumétrico en tiempo real.',
-      detail: 'Utilización de redes de distribución de contenido (CDN) y depuración de tráfico masivo por hardware para absorber ciberataques de saturación SYN flood o amplificación DNS.'
+      summary: 'Depuración de tráfico volumétrico en capas de red y aplicación.',
+      detail: 'Mitigación en tiempo real mediante CDNs y sistemas scrubbing de hardware para repeler ataques masivos de saturación SYN flood o amplificación DNS.'
     }
   ]
 
@@ -121,79 +129,80 @@ export default function App() {
 
   return (
     <div style={styles.appWrapper}>
-      {/* Barra de lectura superior */}
+      {/* Barra de progreso superior Cyberpunk */}
       <div style={{ ...styles.scrollProgressBar, width: `${scrollProgress}%` }}></div>
 
-      {/* Luces de ambiente Apple TechChic */}
-      <div style={styles.ambientCyan}></div>
-      <div style={styles.ambientMagenta}></div>
+      {/* Grid de Fondo Cyberpunk */}
+      <div style={styles.cyberGrid}></div>
 
-      {/* Hero Principal */}
+      {/* Header Estilo 8dot8 */}
       <header style={styles.heroSection}>
-        <div style={styles.logoPill}>
-          <span style={styles.logoDot}></span>
-          <span style={styles.logoText}>INFOGRAFÍA INTERACTIVA // APPLE TECHCHIC</span>
+        <div style={styles.terminalTag}>
+          <span style={styles.terminalDot}></span>
+          <span>SYSTEM // INFOGRAFÍA_CIBERSEGURIDAD.EXE</span>
         </div>
 
         <h1 style={styles.heroTitle}>
-          La Tríada de la <br />
-          <span style={styles.gradientText}>Ciberseguridad</span>
+          LA TRÍADA DE LA <br />
+          <span style={styles.glitchText}>CIBERSEGURIDAD</span>
         </h1>
 
+        <div style={styles.accentLine}></div>
+
         <p style={styles.heroSubtitle}>
-          Haz clic en cualquiera de las tarjetas de la infografía para desplegar el análisis técnico detallado.
+          &gt; MODELO DE REFERENCIA INTERNACIONAL: CONFIDENCIALIDAD, INTEGRIDAD Y DISPONIBILIDAD (CIA). SELECCIONA CUALQUIER MÓDULO PARA DESPLEGAR SUS ESPECIFICACIONES TÉCNICAS.
         </p>
 
-        {/* Filtros Interactivos */}
+        {/* Filtros Cyberpunk */}
         <div style={styles.filterBar}>
           <button
             onClick={() => setActiveFilter('all')}
             style={{
               ...styles.filterBtn,
-              borderColor: activeFilter === 'all' ? '#00F0FF' : 'rgba(255,255,255,0.12)',
-              color: activeFilter === 'all' ? '#00F0FF' : '#86868B',
-              backgroundColor: activeFilter === 'all' ? 'rgba(0,240,255,0.1)' : 'rgba(255,255,255,0.03)'
+              borderColor: activeFilter === 'all' ? '#FF0055' : 'rgba(255,255,255,0.2)',
+              color: activeFilter === 'all' ? '#FF0055' : '#888',
+              backgroundColor: activeFilter === 'all' ? '#FF005515' : 'transparent'
             }}
           >
-            ✦ Todos los Pilares
+            [ALL_MODULES]
           </button>
           <button
             onClick={() => setActiveFilter('confidencialidad')}
             style={{
               ...styles.filterBtn,
-              borderColor: activeFilter === 'confidencialidad' ? '#00F0FF' : 'rgba(255,255,255,0.12)',
-              color: activeFilter === 'confidencialidad' ? '#00F0FF' : '#86868B',
-              backgroundColor: activeFilter === 'confidencialidad' ? 'rgba(0,240,255,0.1)' : 'rgba(255,255,255,0.03)'
+              borderColor: activeFilter === 'confidencialidad' ? '#00F0FF' : 'rgba(255,255,255,0.2)',
+              color: activeFilter === 'confidencialidad' ? '#00F0FF' : '#888',
+              backgroundColor: activeFilter === 'confidencialidad' ? '#00F0FF15' : 'transparent'
             }}
           >
-            🔒 Confidencialidad
+            01_CONFIDENCIALIDAD
           </button>
           <button
             onClick={() => setActiveFilter('integridad')}
             style={{
               ...styles.filterBtn,
-              borderColor: activeFilter === 'integridad' ? '#FF007F' : 'rgba(255,255,255,0.12)',
-              color: activeFilter === 'integridad' ? '#FF007F' : '#86868B',
-              backgroundColor: activeFilter === 'integridad' ? 'rgba(255,0,127,0.1)' : 'rgba(255,255,255,0.03)'
+              borderColor: activeFilter === 'integridad' ? '#FF0055' : 'rgba(255,255,255,0.2)',
+              color: activeFilter === 'integridad' ? '#FF0055' : '#888',
+              backgroundColor: activeFilter === 'integridad' ? '#FF005515' : 'transparent'
             }}
           >
-            🧬 Integridad
+            02_INTEGRIDAD
           </button>
           <button
             onClick={() => setActiveFilter('disponibilidad')}
             style={{
               ...styles.filterBtn,
-              borderColor: activeFilter === 'disponibilidad' ? '#00F0FF' : 'rgba(255,255,255,0.12)',
-              color: activeFilter === 'disponibilidad' ? '#00F0FF' : '#86868B',
-              backgroundColor: activeFilter === 'disponibilidad' ? 'rgba(0,240,255,0.1)' : 'rgba(255,255,255,0.03)'
+              borderColor: activeFilter === 'disponibilidad' ? '#00F0FF' : 'rgba(255,255,255,0.2)',
+              color: activeFilter === 'disponibilidad' ? '#00F0FF' : '#888',
+              backgroundColor: activeFilter === 'disponibilidad' ? '#00F0FF15' : 'transparent'
             }}
           >
-            ☁️ Disponibilidad
+            03_DISPONIBILIDAD
           </button>
         </div>
       </header>
 
-      {/* Grid de Tarjetas Interactivas de la Infografía */}
+      {/* Grid de Tarjetas Cyberpunk / 8dot8 */}
       <main style={styles.mainContainer}>
         <div style={styles.interactiveGrid}>
           {filteredFeatures.map((item) => {
@@ -203,37 +212,36 @@ export default function App() {
                 key={item.id}
                 onClick={() => toggleCard(item.id)}
                 style={{
-                  ...styles.interactiveCard,
-                  borderColor: isExpanded ? item.color : 'rgba(255, 255, 255, 0.12)',
-                  boxShadow: isExpanded ? `0 0 30px ${item.color}40` : '0 20px 40px rgba(0, 0, 0, 0.6)'
+                  ...styles.cyberCard,
+                  borderColor: isExpanded ? item.color : '#22222A',
+                  boxShadow: isExpanded ? `0 0 25px ${item.color}50` : 'none'
                 }}
               >
-                <div style={styles.cardHeaderRow}>
-                  <div style={{ ...styles.iconBox, borderColor: item.color }}>
-                    {item.icon}
-                  </div>
-                  <span style={{ ...styles.badgePill, color: item.color, borderColor: `${item.color}60` }}>
-                    {item.badge}
-                  </span>
+                <div style={styles.cardTopRow}>
+                  <span style={{ ...styles.cardCode, color: item.color }}>{item.code}</span>
+                  <span style={styles.cardBadge}>{item.badge}</span>
                 </div>
 
-                <h3 style={styles.cardTitle}>{item.title}</h3>
+                <div style={styles.cardHeaderGroup}>
+                  <span style={{ ...styles.cardIcon, borderColor: item.color }}>{item.icon}</span>
+                  <h3 style={styles.cardTitle}>{item.title}</h3>
+                </div>
+
                 <p style={styles.cardSummary}>{item.summary}</p>
 
-                {/* Contenido expandible interactivo */}
                 {isExpanded && (
-                  <div style={styles.expandedContent}>
-                    <div style={{ ...styles.divider, backgroundColor: item.color }}></div>
-                    <p style={styles.cardDetailText}>{item.detail}</p>
-                    <span style={{ ...styles.clickTag, color: item.color }}>
-                      ✓ Clic para contraer
+                  <div style={styles.expandedBlock}>
+                    <div style={{ ...styles.terminalDivider, backgroundColor: item.color }}></div>
+                    <p style={styles.cardDetailText}>&gt; {item.detail}</p>
+                    <span style={{ ...styles.closeTag, color: item.color }}>
+                      [- Ocultar detalle]
                     </span>
                   </div>
                 )}
 
                 {!isExpanded && (
-                  <span style={styles.expandPrompt}>
-                    + Toca para expandir detalle
+                  <span style={{ ...styles.expandPrompt, color: item.color }}>
+                    [+ CLICK_TO_EXPAND_SPECS]
                   </span>
                 )}
               </div>
@@ -242,25 +250,24 @@ export default function App() {
         </div>
       </main>
 
-      {/* Conclusión & Acreditación de Autoría en GitHub */}
+      {/* Footer Conclusión & Autoría en GitHub Estilo 8dot8 */}
       <footer style={styles.footerSection}>
         <div style={styles.conclusionCard}>
-          <div style={styles.checkBadge}>✓</div>
-          <span style={styles.badgeMagenta}>Resumen de Cierre</span>
-          <h2 style={styles.conclusionTitle}>Seguridad Digital en Armonía</h2>
+          <div style={styles.footerCodeTag}>// SYSTEM_SUMMARY</div>
+          <h2 style={styles.conclusionTitle}>CIBERSEGURIDAD EN ARMONÍA</h2>
           <p style={styles.conclusionSubtitle}>
-            La Tríada de la Ciberseguridad no es un producto estático, sino una estrategia interactiva y continua. Mantener el equilibrio entre Confidencialidad, Integridad y Disponibilidad es la clave para la resiliencia en el mundo moderno.
+            &gt; La Tríada CIA es la columna vertebral de la defensa en profundidad. Mantener el equilibrio entre sus tres vectores garantiza la continuidad operacional y la resiliencia en entornos de alta amenaza.
           </p>
 
           <div style={styles.authorBadge}>
-            <span style={styles.authorLabel}>Creado y diseñado por</span>
+            <span style={styles.authorLabel}>[DESARROLLO &amp; DISEÑO]</span>
             <a
               href={`https://github.com/${userGithub}`}
               target="_blank"
               rel="noopener noreferrer"
               style={styles.authorLink}
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{ marginRight: '8px' }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{ marginRight: '10px' }}>
                 <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
               </svg>
               @{userGithub}
@@ -272,16 +279,15 @@ export default function App() {
   )
 }
 
-// Estilos Ancho Completo (Full Width) Estilo Apple Dark Glass
+// Estilos 8dot8 Ciberpunk / Brutalista
 const styles = {
   appWrapper: {
-    backgroundColor: '#000000',
+    backgroundColor: '#050505',
     width: '100vw',
     minHeight: '100vh',
     margin: 0,
     padding: 0,
-    fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif',
-    color: '#F5F5F7',
+    color: '#FFFFFF',
     position: 'relative',
     overflowX: 'hidden',
     paddingBottom: '80px'
@@ -291,29 +297,18 @@ const styles = {
     top: 0,
     left: 0,
     height: '4px',
-    background: 'linear-gradient(90deg, #00F0FF, #FF007F)',
+    background: 'linear-gradient(90deg, #FF0055, #00F0FF)',
     zIndex: 100,
-    boxShadow: '0 0 12px #00F0FF'
+    boxShadow: '0 0 10px #FF0055'
   },
-  ambientCyan: {
+  cyberGrid: {
     position: 'fixed',
-    top: '-10%',
-    left: '5%',
-    width: '650px',
-    height: '650px',
-    borderRadius: '50%',
-    background: 'radial-gradient(circle, rgba(0, 240, 255, 0.12) 0%, rgba(0,0,0,0) 70%)',
-    pointerEvents: 'none',
-    zIndex: 0
-  },
-  ambientMagenta: {
-    position: 'fixed',
-    bottom: '-10%',
-    right: '5%',
-    width: '650px',
-    height: '650px',
-    borderRadius: '50%',
-    background: 'radial-gradient(circle, rgba(255, 0, 127, 0.12) 0%, rgba(0,0,0,0) 70%)',
+    inset: 0,
+    backgroundImage: `
+      linear-gradient(to right, rgba(255, 0, 85, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 240, 255, 0.04) 1px, transparent 1px)
+    `,
+    backgroundSize: '40px 40px',
     pointerEvents: 'none',
     zIndex: 0
   },
@@ -322,72 +317,69 @@ const styles = {
     maxWidth: '1200px',
     margin: '0 auto',
     padding: '80px 24px 40px 24px',
-    textAlign: 'center',
     position: 'relative',
     zIndex: 1
   },
-  logoPill: {
+  terminalTag: {
     display: 'inline-flex',
     alignItems: 'center',
     gap: '10px',
-    background: 'rgba(255, 255, 255, 0.05)',
-    padding: '8px 20px',
-    borderRadius: '100px',
-    border: '1px solid rgba(255, 255, 255, 0.1)',
+    border: '1px solid #FF0055',
+    background: '#100008',
+    color: '#FF0055',
+    padding: '6px 16px',
+    fontSize: '12px',
+    fontWeight: '700',
     marginBottom: '24px'
   },
-  logoDot: {
+  terminalDot: {
     width: '8px',
     height: '8px',
     borderRadius: '50%',
-    backgroundColor: '#00F0FF',
-    boxShadow: '0 0 10px #00F0FF'
-  },
-  logoText: {
-    fontSize: '11px',
-    fontWeight: '700',
-    color: '#86868B',
-    letterSpacing: '1.2px'
+    backgroundColor: '#FF0055',
+    boxShadow: '0 0 8px #FF0055'
   },
   heroTitle: {
-    fontSize: '56px',
+    fontSize: '52px',
     fontWeight: '800',
-    letterSpacing: '-0.03em',
-    lineHeight: '1.08',
-    marginBottom: '20px'
+    letterSpacing: '1px',
+    lineHeight: '1.1',
+    margin: 0
   },
-  gradientText: {
-    background: 'linear-gradient(135deg, #00F0FF 0%, #FF007F 100%)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    filter: 'drop-shadow(0 0 30px rgba(0, 240, 255, 0.3))'
+  glitchText: {
+    color: '#00F0FF',
+    textShadow: '0 0 20px rgba(0, 240, 255, 0.6)'
+  },
+  accentLine: {
+    width: '100px',
+    height: '4px',
+    backgroundColor: '#FF0055',
+    margin: '24px 0'
   },
   heroSubtitle: {
-    fontSize: '18px',
-    color: '#86868B',
-    maxWidth: '680px',
-    margin: '0 auto 36px auto',
-    lineHeight: '1.5'
+    fontSize: '14px',
+    color: '#AAAAAA',
+    maxWidth: '800px',
+    lineHeight: '1.7',
+    marginBottom: '36px'
   },
   filterBar: {
     display: 'flex',
     gap: '12px',
-    justifyContent: 'center',
     flexWrap: 'wrap'
   },
   filterBtn: {
     border: '1px solid',
-    borderRadius: '100px',
-    padding: '10px 22px',
-    fontSize: '14px',
-    fontWeight: '600',
+    padding: '10px 18px',
+    fontSize: '12px',
+    fontWeight: '700',
     cursor: 'pointer',
-    backdropFilter: 'blur(10px)',
+    fontFamily: 'inherit',
     transition: 'all 0.2s ease'
   },
   mainContainer: {
     width: '100%',
-    maxWidth: '1300px',
+    maxWidth: '1200px',
     margin: '0 auto',
     padding: '0 24px',
     position: 'relative',
@@ -398,80 +390,75 @@ const styles = {
     gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
     gap: '24px'
   },
-  interactiveCard: {
-    background: 'rgba(22, 22, 26, 0.8)',
+  cyberCard: {
+    background: '#0A0A0E',
     border: '1px solid',
-    borderRadius: '24px',
-    padding: '32px 28px',
-    backdropFilter: 'blur(30px)',
+    padding: '28px',
     cursor: 'pointer',
-    transition: 'all 0.3s cubic-bezier(0.25, 1, 0.5, 1)',
+    transition: 'all 0.2s ease',
     display: 'flex',
     flexDirection: 'column'
   },
-  cardHeaderRow: {
+  cardTopRow: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: '20px'
-  },
-  iconBox: {
-    width: '46px',
-    height: '46px',
-    borderRadius: '14px',
-    background: 'rgba(255, 255, 255, 0.05)',
-    border: '1px solid',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: '22px'
-  },
-  badgePill: {
-    fontSize: '11px',
-    fontWeight: '700',
-    letterSpacing: '0.8px',
-    border: '1px solid',
-    padding: '4px 12px',
-    borderRadius: '100px',
-    background: 'rgba(255,255,255,0.03)'
-  },
-  cardTitle: {
-    fontSize: '20px',
-    fontWeight: '700',
-    color: '#F5F5F7',
-    marginBottom: '8px',
-    letterSpacing: '-0.01em'
-  },
-  cardSummary: {
-    fontSize: '14px',
-    color: '#86868B',
-    lineHeight: '1.5'
-  },
-  expandedContent: {
-    marginTop: '16px'
-  },
-  divider: {
-    height: '2px',
-    width: '40px',
-    borderRadius: '2px',
     marginBottom: '16px'
   },
-  cardDetailText: {
+  cardCode: {
     fontSize: '14px',
-    color: '#E0E0EC',
+    fontWeight: '700'
+  },
+  cardBadge: {
+    fontSize: '10px',
+    color: '#666677'
+  },
+  cardHeaderGroup: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '12px',
+    marginBottom: '12px'
+  },
+  cardIcon: {
+    fontSize: '20px',
+    padding: '6px',
+    border: '1px solid',
+    background: '#000000'
+  },
+  cardTitle: {
+    fontSize: '18px',
+    fontWeight: '700',
+    color: '#FFFFFF',
+    margin: 0
+  },
+  cardSummary: {
+    fontSize: '13px',
+    color: '#888899',
+    lineHeight: '1.6',
+    margin: 0
+  },
+  expandedBlock: {
+    marginTop: '16px'
+  },
+  terminalDivider: {
+    height: '2px',
+    width: '100%',
+    marginBottom: '12px'
+  },
+  cardDetailText: {
+    fontSize: '13px',
+    color: '#DDDDDD',
     lineHeight: '1.6',
     marginBottom: '12px'
   },
-  clickTag: {
-    fontSize: '12px',
-    fontWeight: '700',
-    display: 'inline-block'
+  closeTag: {
+    fontSize: '11px',
+    fontWeight: '700'
   },
   expandPrompt: {
-    fontSize: '12px',
-    color: '#86868B',
-    marginTop: '16px',
-    fontWeight: '600'
+    fontSize: '11px',
+    fontWeight: '700',
+    marginTop: '16px'
   },
   footerSection: {
     width: '100%',
@@ -482,78 +469,49 @@ const styles = {
     zIndex: 1
   },
   conclusionCard: {
-    background: 'rgba(22, 22, 26, 0.85)',
-    border: '1px solid rgba(255, 255, 255, 0.12)',
-    borderRadius: '32px',
-    padding: '52px 36px',
-    textAlign: 'center',
-    backdropFilter: 'blur(30px)',
-    boxShadow: '0 30px 60px rgba(0, 0, 0, 0.8)',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
+    background: '#0A0A0E',
+    border: '1px solid #FF0055',
+    padding: '40px 32px',
+    textAlign: 'left'
   },
-  checkBadge: {
-    width: '60px',
-    height: '60px',
-    borderRadius: '50%',
-    background: 'linear-gradient(135deg, #00F0FF 0%, #FF007F 100%)',
-    color: '#000000',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: '26px',
-    fontWeight: '900',
-    marginBottom: '20px',
-    boxShadow: '0 0 30px rgba(0, 240, 255, 0.4)'
-  },
-  badgeMagenta: {
-    background: 'rgba(255, 0, 127, 0.1)',
-    border: '1px solid rgba(255, 0, 127, 0.4)',
-    color: '#FF007F',
-    padding: '6px 16px',
-    borderRadius: '100px',
-    fontSize: '11px',
+  footerCodeTag: {
+    fontSize: '12px',
+    color: '#FF0055',
     fontWeight: '700',
-    letterSpacing: '1px',
-    textTransform: 'uppercase'
-  },
-  conclusionTitle: {
-    fontSize: '34px',
-    fontWeight: '700',
-    marginTop: '16px',
     marginBottom: '12px'
   },
+  conclusionTitle: {
+    fontSize: '28px',
+    fontWeight: '800',
+    color: '#FFFFFF',
+    margin: '0 0 12px 0'
+  },
   conclusionSubtitle: {
-    fontSize: '17px',
-    color: '#86868B',
-    maxWidth: '650px',
-    lineHeight: '1.6',
-    marginBottom: '32px'
+    fontSize: '14px',
+    color: '#AAAAAA',
+    lineHeight: '1.7',
+    maxWidth: '800px',
+    marginBottom: '28px'
   },
   authorBadge: {
     display: 'inline-flex',
     flexDirection: 'column',
-    alignItems: 'center',
     gap: '6px',
-    background: 'rgba(255, 255, 255, 0.04)',
-    border: '1px solid rgba(255, 255, 255, 0.1)',
-    padding: '14px 28px',
-    borderRadius: '100px'
+    border: '1px solid #00F0FF',
+    background: '#001015',
+    padding: '12px 20px'
   },
   authorLabel: {
-    fontSize: '11px',
-    color: '#86868B',
-    textTransform: 'uppercase',
-    letterSpacing: '1px',
-    fontWeight: '600'
+    fontSize: '10px',
+    color: '#00F0FF',
+    fontWeight: '700'
   },
   authorLink: {
     display: 'flex',
     alignItems: 'center',
-    fontSize: '16px',
+    fontSize: '15px',
     fontWeight: '700',
-    color: '#00F0FF',
+    color: '#FFFFFF',
     textDecoration: 'none'
   }
 }

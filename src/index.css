@@ -1,14 +1,28 @@
-/* Reseteo completo para pantalla completa estilo Apple */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap');
+
 html, body, #root {
   margin: 0;
   padding: 0;
   width: 100%;
   min-height: 100vh;
-  background-color: #000000;
+  background-color: #050505;
+  color: #FFFFFF;
+  font-family: 'Fira Code', 'Courier New', Courier, monospace;
   overflow-x: hidden;
   box-sizing: border-box;
 }
 
 *, *:before, *:after {
   box-sizing: inherit;
+}
+
+/* Custom Scrollbar estilo 8dot8 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0C;
+}
+::-webkit-scrollbar-thumb {
+  background: #FF0055;
 }

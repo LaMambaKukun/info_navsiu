@@ -1,20 +1,47 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 export default function App() {
   const userGithub = 'LaMambaKukun'
   const [activeFilter, setActiveFilter] = useState('all')
   const [expandedCard, setExpandedCard] = useState(null)
-  const [scrollProgress, setScrollProgress] = useState(0)
+  
+  // Estado para contadores animados (Estilo 8.8)
+  const [counts, setCounts] = useState({ c: 0, i: 0, a: 0 })
+  const statsRef = useRef(null)
 
+  // 1. Animación de Contadores Numéricos (Intersection Observer de 8.8)
   useEffect(() => {
-    const handleScroll = () => {
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight
-      if (totalHeight > 0) {
-        setScrollProgress((window.scrollY / totalHeight) * 100)
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        let start = 0
+        const duration = 1500
+        const interval = 20
+        const steps = duration / interval
+        
+        const timer = setInterval(() => {
+          start++
+          const progress = start / steps
+          setCounts({
+            c: Math.min(Math.ceil(256 * progress), 256),
+            i: Math.min(Math.ceil(100 * progress), 100),
+            a: Math.min((99.9 * progress).toFixed(1), 99.9)
+          })
+
+          if (start >= steps) {
+            clearInterval(timer)
+            setCounts({ c: 256, i: 100, a: 99.9 })
+          }
+        }, interval)
+
+        observer.disconnect()
       }
+    }, { threshold: 0.3 })
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current)
     }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+
+    return () => observer.disconnect()
   }, [])
 
   const toggleCard = (id) => {
@@ -25,7 +52,7 @@ export default function App() {
     {
       id: 'conf-1',
       pillar: 'confidencialidad',
-      color: '#00F0FF',
+      color: '#ff3333',
       code: 'CONF_01',
       badge: '[PILAR 01 :: CONFIDENCIALIDAD]',
       icon: '🔐',
@@ -36,7 +63,7 @@ export default function App() {
     {
       id: 'conf-2',
       pillar: 'confidencialidad',
-      color: '#00F0FF',
+      color: '#ff3333',
       code: 'CONF_02',
       badge: '[PILAR 01 :: CONFIDENCIALIDAD]',
       icon: '🪪',
@@ -47,7 +74,7 @@ export default function App() {
     {
       id: 'conf-3',
       pillar: 'confidencialidad',
-      color: '#00F0FF',
+      color: '#ff3333',
       code: 'CONF_03',
       badge: '[PILAR 01 :: CONFIDENCIALIDAD]',
       icon: '👁️',
@@ -58,7 +85,7 @@ export default function App() {
     {
       id: 'int-1',
       pillar: 'integridad',
-      color: '#FF0055',
+      color: '#e62424',
       code: 'INT_01',
       badge: '[PILAR 02 :: INTEGRIDAD]',
       icon: '🧬',
@@ -69,7 +96,7 @@ export default function App() {
     {
       id: 'int-2',
       pillar: 'integridad',
-      color: '#FF0055',
+      color: '#e62424',
       code: 'INT_02',
       badge: '[PILAR 02 :: INTEGRIDAD]',
       icon: '✍️',
@@ -80,7 +107,7 @@ export default function App() {
     {
       id: 'int-3',
       pillar: 'integridad',
-      color: '#FF0055',
+      color: '#e62424',
       code: 'INT_03',
       badge: '[PILAR 02 :: INTEGRIDAD]',
       icon: '📜',
@@ -91,7 +118,7 @@ export default function App() {
     {
       id: 'disp-1',
       pillar: 'disponibilidad',
-      color: '#00F0FF',
+      color: '#ff3333',
       code: 'DISP_01',
       badge: '[PILAR 03 :: DISPONIBILIDAD]',
       icon: '☁️',
@@ -102,7 +129,7 @@ export default function App() {
     {
       id: 'disp-2',
       pillar: 'disponibilidad',
-      color: '#00F0FF',
+      color: '#ff3333',
       code: 'DISP_02',
       badge: '[PILAR 03 :: DISPONIBILIDAD]',
       icon: '🔄',
@@ -113,7 +140,7 @@ export default function App() {
     {
       id: 'disp-3',
       pillar: 'disponibilidad',
-      color: '#00F0FF',
+      color: '#ff3333',
       code: 'DISP_03',
       badge: '[PILAR 03 :: DISPONIBILIDAD]',
       icon: '🛡️',
@@ -129,13 +156,10 @@ export default function App() {
 
   return (
     <div style={styles.appWrapper}>
-      {/* Barra de progreso superior Cyberpunk */}
-      <div style={{ ...styles.scrollProgressBar, width: `${scrollProgress}%` }}></div>
-
-      {/* Grid de Fondo Cyberpunk */}
+      {/* Fondo con Patrón de Cuadrícula Ciberpunk (Grid Pattern de 8.8) */}
       <div style={styles.cyberGrid}></div>
 
-      {/* Header Estilo 8dot8 */}
+      {/* Header Principal */}
       <header style={styles.heroSection}>
         <div style={styles.terminalTag}>
           <span style={styles.terminalDot}></span>
@@ -144,7 +168,7 @@ export default function App() {
 
         <h1 style={styles.heroTitle}>
           LA TRÍADA DE LA <br />
-          <span style={styles.glitchText}>CIBERSEGURIDAD</span>
+          <span style={styles.glowTextRed}>CIBERSEGURIDAD</span>
         </h1>
 
         <div style={styles.accentLine}></div>
@@ -153,15 +177,16 @@ export default function App() {
           &gt; MODELO DE REFERENCIA INTERNACIONAL: CONFIDENCIALIDAD, INTEGRIDAD Y DISPONIBILIDAD (CIA). SELECCIONA CUALQUIER MÓDULO PARA DESPLEGAR SUS ESPECIFICACIONES TÉCNICAS.
         </p>
 
-        {/* Filtros Cyberpunk */}
+        {/* Filtros con Botones Pulso-Glow */}
         <div style={styles.filterBar}>
           <button
             onClick={() => setActiveFilter('all')}
             style={{
               ...styles.filterBtn,
-              borderColor: activeFilter === 'all' ? '#FF0055' : 'rgba(255,255,255,0.2)',
-              color: activeFilter === 'all' ? '#FF0055' : '#888',
-              backgroundColor: activeFilter === 'all' ? '#FF005515' : 'transparent'
+              borderColor: activeFilter === 'all' ? '#ff3333' : 'rgba(255,255,255,0.2)',
+              color: activeFilter === 'all' ? '#ffffff' : '#888',
+              backgroundColor: activeFilter === 'all' ? '#e62424' : 'transparent',
+              boxShadow: activeFilter === 'all' ? '0 0 20px rgba(255, 51, 51, 0.6)' : 'none'
             }}
           >
             [ALL_MODULES]
@@ -170,9 +195,10 @@ export default function App() {
             onClick={() => setActiveFilter('confidencialidad')}
             style={{
               ...styles.filterBtn,
-              borderColor: activeFilter === 'confidencialidad' ? '#00F0FF' : 'rgba(255,255,255,0.2)',
-              color: activeFilter === 'confidencialidad' ? '#00F0FF' : '#888',
-              backgroundColor: activeFilter === 'confidencialidad' ? '#00F0FF15' : 'transparent'
+              borderColor: activeFilter === 'confidencialidad' ? '#ff3333' : 'rgba(255,255,255,0.2)',
+              color: activeFilter === 'confidencialidad' ? '#ffffff' : '#888',
+              backgroundColor: activeFilter === 'confidencialidad' ? '#e62424' : 'transparent',
+              boxShadow: activeFilter === 'confidencialidad' ? '0 0 20px rgba(255, 51, 51, 0.6)' : 'none'
             }}
           >
             01_CONFIDENCIALIDAD
@@ -181,9 +207,10 @@ export default function App() {
             onClick={() => setActiveFilter('integridad')}
             style={{
               ...styles.filterBtn,
-              borderColor: activeFilter === 'integridad' ? '#FF0055' : 'rgba(255,255,255,0.2)',
-              color: activeFilter === 'integridad' ? '#FF0055' : '#888',
-              backgroundColor: activeFilter === 'integridad' ? '#FF005515' : 'transparent'
+              borderColor: activeFilter === 'integridad' ? '#ff3333' : 'rgba(255,255,255,0.2)',
+              color: activeFilter === 'integridad' ? '#ffffff' : '#888',
+              backgroundColor: activeFilter === 'integridad' ? '#e62424' : 'transparent',
+              boxShadow: activeFilter === 'integridad' ? '0 0 20px rgba(255, 51, 51, 0.6)' : 'none'
             }}
           >
             02_INTEGRIDAD
@@ -192,9 +219,10 @@ export default function App() {
             onClick={() => setActiveFilter('disponibilidad')}
             style={{
               ...styles.filterBtn,
-              borderColor: activeFilter === 'disponibilidad' ? '#00F0FF' : 'rgba(255,255,255,0.2)',
-              color: activeFilter === 'disponibilidad' ? '#00F0FF' : '#888',
-              backgroundColor: activeFilter === 'disponibilidad' ? '#00F0FF15' : 'transparent'
+              borderColor: activeFilter === 'disponibilidad' ? '#ff3333' : 'rgba(255,255,255,0.2)',
+              color: activeFilter === 'disponibilidad' ? '#ffffff' : '#888',
+              backgroundColor: activeFilter === 'disponibilidad' ? '#e62424' : 'transparent',
+              boxShadow: activeFilter === 'disponibilidad' ? '0 0 20px rgba(255, 51, 51, 0.6)' : 'none'
             }}
           >
             03_DISPONIBILIDAD
@@ -202,7 +230,23 @@ export default function App() {
         </div>
       </header>
 
-      {/* Grid de Tarjetas Cyberpunk / 8dot8 */}
+      {/* Sección de Estadísticas con Animación de Contador (8.8 Observer) */}
+      <section ref={statsRef} style={styles.statsContainer}>
+        <div style={styles.statBox}>
+          <span style={styles.statNumber}>AES-{counts.c}</span>
+          <span style={styles.statLabel}>MÁXIMA CONFIDENCIALIDAD</span>
+        </div>
+        <div style={styles.statBox}>
+          <span style={styles.statNumber}>{counts.i}%</span>
+          <span style={styles.statLabel}>INTEGRIDAD DE DATOS</span>
+        </div>
+        <div style={styles.statBox}>
+          <span style={styles.statNumber}>{counts.a}%</span>
+          <span style={styles.statLabel}>DISPONIBILIDAD ALTA</span>
+        </div>
+      </section>
+
+      {/* Grid de Tarjetas Interactivas con Hover & Glassmorphism */}
       <main style={styles.mainContainer}>
         <div style={styles.interactiveGrid}>
           {filteredFeatures.map((item) => {
@@ -211,10 +255,11 @@ export default function App() {
               <div
                 key={item.id}
                 onClick={() => toggleCard(item.id)}
+                className="glass-card-8dot8"
                 style={{
-                  ...styles.cyberCard,
+                  ...styles.glassCard,
                   borderColor: isExpanded ? item.color : '#22222A',
-                  boxShadow: isExpanded ? `0 0 25px ${item.color}50` : 'none'
+                  boxShadow: isExpanded ? `0 0 30px rgba(255, 51, 51, 0.3)` : 'none'
                 }}
               >
                 <div style={styles.cardTopRow}>
@@ -234,7 +279,7 @@ export default function App() {
                     <div style={{ ...styles.terminalDivider, backgroundColor: item.color }}></div>
                     <p style={styles.cardDetailText}>&gt; {item.detail}</p>
                     <span style={{ ...styles.closeTag, color: item.color }}>
-                      [- Ocultar detalle]
+                      [- Ocultar especificación]
                     </span>
                   </div>
                 )}
@@ -250,7 +295,7 @@ export default function App() {
         </div>
       </main>
 
-      {/* Footer Conclusión & Autoría en GitHub Estilo 8dot8 */}
+      {/* Footer Conclusión & Autoría en GitHub */}
       <footer style={styles.footerSection}>
         <div style={styles.conclusionCard}>
           <div style={styles.footerCodeTag}>// SYSTEM_SUMMARY</div>
@@ -279,10 +324,10 @@ export default function App() {
   )
 }
 
-// Estilos 8dot8 Ciberpunk / Brutalista
+// Estilos Ciberpunk & Animaciones Integradas
 const styles = {
   appWrapper: {
-    backgroundColor: '#050505',
+    backgroundColor: '#070707',
     width: '100vw',
     minHeight: '100vh',
     margin: 0,
@@ -290,25 +335,17 @@ const styles = {
     color: '#FFFFFF',
     position: 'relative',
     overflowX: 'hidden',
-    paddingBottom: '80px'
-  },
-  scrollProgressBar: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    height: '4px',
-    background: 'linear-gradient(90deg, #FF0055, #00F0FF)',
-    zIndex: 100,
-    boxShadow: '0 0 10px #FF0055'
+    paddingBottom: '80px',
+    fontFamily: '"Fira Code", "Courier New", Courier, monospace'
   },
   cyberGrid: {
     position: 'fixed',
     inset: 0,
     backgroundImage: `
-      linear-gradient(to right, rgba(255, 0, 85, 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(0, 240, 255, 0.04) 1px, transparent 1px)
+      linear-gradient(to right, rgba(255, 51, 51, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 51, 51, 0.03) 1px, transparent 1px)
     `,
-    backgroundSize: '40px 40px',
+    backgroundSize: '32px 32px',
     pointerEvents: 'none',
     zIndex: 0
   },
@@ -316,7 +353,7 @@ const styles = {
     width: '100%',
     maxWidth: '1200px',
     margin: '0 auto',
-    padding: '80px 24px 40px 24px',
+    padding: '80px 24px 30px 24px',
     position: 'relative',
     zIndex: 1
   },
@@ -324,9 +361,9 @@ const styles = {
     display: 'inline-flex',
     alignItems: 'center',
     gap: '10px',
-    border: '1px solid #FF0055',
-    background: '#100008',
-    color: '#FF0055',
+    border: '1px solid #ff3333',
+    background: '#120505',
+    color: '#ff3333',
     padding: '6px 16px',
     fontSize: '12px',
     fontWeight: '700',
@@ -336,8 +373,8 @@ const styles = {
     width: '8px',
     height: '8px',
     borderRadius: '50%',
-    backgroundColor: '#FF0055',
-    boxShadow: '0 0 8px #FF0055'
+    backgroundColor: '#ff3333',
+    boxShadow: '0 0 8px #ff3333'
   },
   heroTitle: {
     fontSize: '52px',
@@ -346,14 +383,14 @@ const styles = {
     lineHeight: '1.1',
     margin: 0
   },
-  glitchText: {
-    color: '#00F0FF',
-    textShadow: '0 0 20px rgba(0, 240, 255, 0.6)'
+  glowTextRed: {
+    color: '#e62424',
+    textShadow: '0 0 25px rgba(230, 36, 36, 0.6)'
   },
   accentLine: {
     width: '100px',
     height: '4px',
-    backgroundColor: '#FF0055',
+    backgroundColor: '#e62424',
     margin: '24px 0'
   },
   heroSubtitle: {
@@ -375,7 +412,41 @@ const styles = {
     fontWeight: '700',
     cursor: 'pointer',
     fontFamily: 'inherit',
-    transition: 'all 0.2s ease'
+    transition: 'all 0.3s cubic-bezier(0.25, 1, 0.5, 1)'
+  },
+  statsContainer: {
+    width: '100%',
+    maxWidth: '1200px',
+    margin: '0 auto 40px auto',
+    padding: '24px',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+    gap: '20px',
+    position: 'relative',
+    zIndex: 1
+  },
+  statBox: {
+    background: 'rgba(18, 18, 18, 0.8)',
+    border: '1px solid #2a2a2a',
+    borderRadius: '16px',
+    padding: '24px',
+    textAlign: 'center',
+    backdropFilter: 'blur(10px)'
+  },
+  statNumber: {
+    fontSize: '36px',
+    fontWeight: '900',
+    color: '#ff3333',
+    display: 'block',
+    textShadow: '0 0 15px rgba(255, 51, 51, 0.4)'
+  },
+  statLabel: {
+    fontSize: '11px',
+    color: '#AAAAAA',
+    letterSpacing: '1px',
+    marginTop: '6px',
+    display: 'block',
+    fontWeight: '700'
   },
   mainContainer: {
     width: '100%',
@@ -390,12 +461,13 @@ const styles = {
     gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
     gap: '24px'
   },
-  cyberCard: {
-    background: '#0A0A0E',
-    border: '1px solid',
+  glassCard: {
+    background: '#121212',
+    border: '1px solid #2a2a2a',
+    borderRadius: '16px',
     padding: '28px',
     cursor: 'pointer',
-    transition: 'all 0.2s ease',
+    transition: 'all 0.3s ease',
     display: 'flex',
     flexDirection: 'column'
   },
@@ -423,7 +495,8 @@ const styles = {
     fontSize: '20px',
     padding: '6px',
     border: '1px solid',
-    background: '#000000'
+    background: '#000000',
+    borderRadius: '8px'
   },
   cardTitle: {
     fontSize: '18px',
@@ -469,14 +542,15 @@ const styles = {
     zIndex: 1
   },
   conclusionCard: {
-    background: '#0A0A0E',
-    border: '1px solid #FF0055',
+    background: '#121212',
+    border: '1px solid #ff3333',
+    borderRadius: '20px',
     padding: '40px 32px',
     textAlign: 'left'
   },
   footerCodeTag: {
     fontSize: '12px',
-    color: '#FF0055',
+    color: '#ff3333',
     fontWeight: '700',
     marginBottom: '12px'
   },
@@ -497,13 +571,14 @@ const styles = {
     display: 'inline-flex',
     flexDirection: 'column',
     gap: '6px',
-    border: '1px solid #00F0FF',
-    background: '#001015',
-    padding: '12px 20px'
+    border: '1px solid #ff3333',
+    background: '#1a0505',
+    padding: '12px 20px',
+    borderRadius: '12px'
   },
   authorLabel: {
     fontSize: '10px',
-    color: '#00F0FF',
+    color: '#ff3333',
     fontWeight: '700'
   },
   authorLink: {
